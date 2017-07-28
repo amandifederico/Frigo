@@ -1,0 +1,38 @@
+<div class="col-sm-6">
+  <%= form_for(turn_detail) do |f| %>
+    <% if turn_detail.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(turn_detail.errors.count, "error") %> prohibited this turn_detail from being saved:</h2>
+
+        <ul>
+        <% turn_detail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Turno"}, {class: "select2"} %>
+    </div>
+    <div class="form-group">
+          <%= f.collection_select :agent_id, Agent.all, :id, :to_s, {prompt: "Agente"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+          <%= f.collection_select :place_id, Place.all, :id, :to_s, {prompt: "Lugar"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+          <%= f.collection_select :position_id, Position.all, :id, :to_s, {prompt: "Posicion"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+          <%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%>
+    </div>
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

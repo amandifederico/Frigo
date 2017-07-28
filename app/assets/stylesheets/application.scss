@@ -1,0 +1,64 @@
+
+$rojo : #920000;
+$rojo-oscuro : #520000;
+$rojo-sombra : rgba(200, 0, 0, 0.5);
+$rojo-claro : #b03b3b;
+
+$primary : $rojo-claro;
+
+@import "bootstrap";
+@import "bootstrap-datepicker3";
+@import "toastr";
+@import "dataTables/jquery.dataTables";
+@import "dataTables/extras/dataTables.responsive";
+@import "font-awesome";
+@import "select2";
+@import "select2-bootstrap";
+@import "index";
+
+
+
+.form-group .select2-container--bootstrap{
+  width: 100%!important;
+}
+
+.has-danger .select2-selection {
+  border: 1px solid #D9534F;
+  border-radius: 4px;
+}
+
+.select2-container--bootstrap .select2-selection--single {
+  height: 38px;
+}
+
+.select2-container--bootstrap .select2-selection{
+  font-family: sans-serif;
+  font-size: 1rem;
+  color:rgb(80, 80, 80);
+
+}
+
+.select2-search { color: $rojo; }
+.select2-search input { color: $rojo; }
+.select2-container--bootstrap .select2-dropdown {border-color: $rojo !important;}
+.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection{border-color: $rojo !important;}
+.select2-results { color: $rojo; }
+.select2-results__option--highlighted{ background-color: $rojo !important; color:white !important}
+
+.btn-form-submit{
+  position: absolute;
+  bottom: 40px;
+  width: 91%;
+}
+
+
+select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $rojo-sombra;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $rojo-sombra;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    border-color: $rojo;
+}

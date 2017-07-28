@@ -1,0 +1,2 @@
+module LotDetailsHelper
+end

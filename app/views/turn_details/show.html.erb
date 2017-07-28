@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Turn:</strong>
+  <%= @turn_detail.turn %>
+</p>
+
+<p>
+  <strong>Agent:</strong>
+  <%= @turn_detail.agent %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @turn_detail.place %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @turn_detail.position %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @turn_detail.observation %>
+</p>
+
+<%= link_to 'Edit', edit_turn_detail_path(@turn_detail) %> |
+<%= link_to 'Back', turn_details_path %>

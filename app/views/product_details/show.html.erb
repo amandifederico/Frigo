@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_detail.product %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @product_detail.weight %>
+</p>
+
+<p>
+  <strong>Weight control:</strong>
+  <%= @product_detail.weight_control %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @product_detail.observation %>
+</p>
+
+<%= link_to 'Edit', edit_product_detail_path(@product_detail) %> |
+<%= link_to 'Back', product_details_path %>

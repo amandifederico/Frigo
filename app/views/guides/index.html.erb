@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Guides</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lot</th>
+      <th>City</th>
+      <th>Arrival date</th>
+      <th>Transport</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guides.each do |guide| %>
+      <tr>
+        <td><%= guide.lot %></td>
+        <td><%= guide.city %></td>
+        <td><%= guide.arrival_date %></td>
+        <td><%= guide.transport %></td>
+        <td><%= link_to 'Show', guide %></td>
+        <td><%= link_to 'Edit', edit_guide_path(guide) %></td>
+        <td><%= link_to 'Destroy', guide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guide', new_guide_path %>

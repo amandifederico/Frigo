@@ -1,0 +1,41 @@
+<div class="col-sm-6">  
+  <%= form_for(guide) do |f| %>
+    <% if guide.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+
+        <ul>
+        <% guide.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="form-group">
+      <%= f.collection_select :lot_id, Lot.all, :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :city_id, City.all, :id, :to_s, {prompt: "Ciudad"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group  row">
+      <div class="input-group date datepicker col-sm-6">
+        <%= f.text_field :arrival_date, placeholder: "Fecha de Llegada", class: "form-control" %>
+          <span class="input-group-addon ">
+            <%= fa_icon "list"%>
+          </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :transport_id, Transport.all, :id, :to_s, {prompt: "Transporte"}, {class: "select2"} %>
+    </div>
+
+     <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

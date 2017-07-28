@@ -1,0 +1,24 @@
+<div class="col-sm-6">  
+  <%= form_for(animal_type) do |f| %>
+    <% if animal_type.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(animal_type.errors.count, "error") %> prohibited this animal_type from being saved:</h2>
+
+        <ul>
+        <% animal_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
+    </div>
+
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

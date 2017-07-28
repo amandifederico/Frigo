@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lot: one
+  city: one
+  arrival_date: 2017-07-26
+  transport: one
+
+two:
+  lot: two
+  city: two
+  arrival_date: 2017-07-26
+  transport: two

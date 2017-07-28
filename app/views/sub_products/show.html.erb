@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lot:</strong>
+  <%= @sub_product.lot %>
+</p>
+
+<p>
+  <strong>Observartion:</strong>
+  <%= @sub_product.observartion %>
+</p>
+
+<%= link_to 'Edit', edit_sub_product_path(@sub_product) %> |
+<%= link_to 'Back', sub_products_path %>

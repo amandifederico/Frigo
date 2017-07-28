@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Coupled:</strong>
+  <%= @transport.coupled %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @transport.capacity %>
+</p>
+
+<p>
+  <strong>Plate:</strong>
+  <%= @transport.plate %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @transport.model %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @transport.driver %>
+</p>
+
+<%= link_to 'Edit', edit_transport_path(@transport) %> |
+<%= link_to 'Back', transports_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sub product:</strong>
+  <%= @sub_product_detail.sub_product %>
+</p>
+
+<p>
+  <strong>Sub product type:</strong>
+  <%= @sub_product_detail.sub_product_type %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @sub_product_detail.weight %>
+</p>
+
+<p>
+  <strong>Weight control:</strong>
+  <%= @sub_product_detail.weight_control %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @sub_product_detail.observation %>
+</p>
+
+<%= link_to 'Edit', edit_sub_product_detail_path(@sub_product_detail) %> |
+<%= link_to 'Back', sub_product_details_path %>

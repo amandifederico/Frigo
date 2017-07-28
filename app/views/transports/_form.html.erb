@@ -1,0 +1,39 @@
+<div class="col-sm-6">  
+  <%= form_for(transport) do |f| %>
+    <% if transport.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(transport.errors.count, "error") %> prohibited this transport from being saved:</h2>
+
+        <ul>
+        <% transport.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+          <%= f.number_field :coupled, class: "form-control input-lg", placeholder: "Acoplado"%>
+    </div>
+
+    <div class="form-group">
+          <%= f.number_field :capacity, class: "form-control input-lg", placeholder: "Capacidad"%>
+    </div>
+
+    <div class="form-group">
+          <%= f.text_field :plate, class: "form-control input-lg", placeholder: "Patente"%>
+    </div>
+
+    <div class="form-group">
+          <%= f.number_field :model, class: "form-control input-lg", placeholder: "Modelo"%>
+    </div>
+
+    <div class="form-group">
+          <%= f.text_field :driver, class: "form-control input-lg", placeholder: "Chofer"%>
+    </div>
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

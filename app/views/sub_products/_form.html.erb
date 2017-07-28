@@ -1,0 +1,28 @@
+<div class="col-sm-6">
+  <%= form_for(sub_product) do |f| %>
+    <% if sub_product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(sub_product.errors.count, "error") %> prohibited this sub_product from being saved:</h2>
+
+        <ul>
+        <% sub_product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.collection_select :lot_id, Lot.all, :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :observartion, class: "form-control input-lg", placeholder: "Observacion"%>
+    </div>
+
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

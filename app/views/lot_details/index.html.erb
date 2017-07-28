@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lot Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lot</th>
+      <th>Animal</th>
+      <th>Quantity</th>
+      <th>Observation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lot_details.each do |lot_detail| %>
+      <tr>
+        <td><%= lot_detail.lot %></td>
+        <td><%= lot_detail.animal %></td>
+        <td><%= lot_detail.quantity %></td>
+        <td><%= lot_detail.observation %></td>
+        <td><%= link_to 'Show', lot_detail %></td>
+        <td><%= link_to 'Edit', edit_lot_detail_path(lot_detail) %></td>
+        <td><%= link_to 'Destroy', lot_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lot Detail', new_lot_detail_path %>

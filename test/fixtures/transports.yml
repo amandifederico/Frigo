@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coupled: 1
+  capacity: 1
+  plate: MyString
+  model: MyString
+  driver: MyString
+
+two:
+  coupled: 1
+  capacity: 1
+  plate: MyString
+  model: MyString
+  driver: MyString

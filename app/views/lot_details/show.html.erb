@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lot:</strong>
+  <%= @lot_detail.lot %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @lot_detail.animal %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @lot_detail.quantity %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @lot_detail.observation %>
+</p>
+
+<%= link_to 'Edit', edit_lot_detail_path(@lot_detail) %> |
+<%= link_to 'Back', lot_details_path %>

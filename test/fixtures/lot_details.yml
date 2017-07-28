@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lot: one
+  animal: one
+  quantity: 1
+  observation: MyString
+
+two:
+  lot: two
+  animal: two
+  quantity: 1
+  observation: MyString

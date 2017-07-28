@@ -1,0 +1,31 @@
+<div class="col-sm-6">  
+  <%= form_for(lot) do |f| %>
+    <% if lot.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(lot.errors.count, "error") %> prohibited this lot from being saved:</h2>
+
+        <ul>
+        <% lot.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.number_field :senasa, class: "form-control input-lg", placeholder: "Senasa"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Turno"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Productor"}, {class: "select2"} %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

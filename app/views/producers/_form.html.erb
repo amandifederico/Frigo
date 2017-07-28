@@ -1,0 +1,47 @@
+<div class="col-sm-6">
+  <%= form_for(producer) do |f| %>
+    <% if producer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(producer.errors.count, "error") %> prohibited this producer from being saved:</h2>
+
+        <ul>
+        <% producer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control input-lg", placeholder: "Nombre"%>
+    </div>
+
+    <div class="form-group row">
+      <div class="input-group date datepicker col-sm-6">
+        <%= f.text_field :up_date, placeholder: "Fecha de alta", class: "form-control" %>
+          <span class="input-group-addon">
+            <%= fa_icon "list"%>
+          </span>
+      </div>
+      <div class="input-group date datepicker col-sm-6">
+      <%= f.text_field :down_date, placeholder: "Baja", class: "form-control" %>
+        <span class="input-group-addon">
+          <%= fa_icon "list"%>
+        </span>
+      </div>  
+    </div>
+
+    <div class="form-group">
+        <%= f.collection_select :city_id, City.all, :id, :to_s, {prompt: "Ciudad"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+
+  <% end %>
+</div>

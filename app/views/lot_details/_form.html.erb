@@ -1,0 +1,35 @@
+<div class="col-sm-6">  
+<%= form_for(lot_detail) do |f| %>
+  <% if lot_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lot_detail.errors.count, "error") %> prohibited this lot_detail from being saved:</h2>
+
+      <ul>
+      <% lot_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+      <%= f.collection_select :lot_id, Lot.all, :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Animal"}, {class: "select2"} %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.number_field :quantity, class: "form-control input-lg", placeholder: "Cantidad"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%>
+    </div>
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

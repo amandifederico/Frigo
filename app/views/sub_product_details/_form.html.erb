@@ -1,0 +1,35 @@
+<div class="col-sm-6">
+  <%= form_for(sub_product_detail) do |f| %>
+    <% if sub_product_detail.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(sub_product_detail.errors.count, "error") %> prohibited this sub_product_detail from being saved:</h2>
+
+        <ul>
+        <% sub_product_detail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.collection_select :sub_product_id, SubProduct.all, :id, :to_s, {prompt: "Sub Producto"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :sub_product_type_id, SubProductType.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%>
+    </div>
+
+    <div class="actions">
+        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    </div>
+  <% end %>
+</div>

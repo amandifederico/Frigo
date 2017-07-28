@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  turn: one
+  agent: one
+  place: one
+  position: one
+  observation: MyString
+
+two:
+  turn: two
+  agent: two
+  place: two
+  position: two
+  observation: MyString
