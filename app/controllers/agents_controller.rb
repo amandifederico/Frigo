@@ -33,6 +33,7 @@ class AgentsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @agent.errors, status: :unprocessable_entity }
+        
       end
     end
   end

@@ -13,5 +13,13 @@
   <%= @product.product_details %>
 </p>
 
+
+<ol>
+  <% for details in @product.product_details %>
+  <li><%= details.weight %></li>
+  <% end %>
+</ol>
+
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

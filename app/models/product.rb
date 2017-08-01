@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
-  belongs_to :lot
-  
-  has_many :product_details, :dependent => :destroy
-  accepts_nested_attributes_for :product_details
+	has_many :product_details, inverse_of: :product
+	accepts_nested_attributes_for :product_details
+	belongs_to :lot
 
+	def to_s
+		description
+	end
 end

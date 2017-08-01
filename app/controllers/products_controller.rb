@@ -15,6 +15,8 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    byebug
+    3.times { @product.product_details.build }
   end
 
   # GET /products/1/edit
@@ -24,6 +26,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -41,6 +44,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
+      byebug
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
@@ -69,6 +73,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:lot_id, :description)
+      params.require(:product).permit(:lot_id, :description, product_details_attributes: [:id, :weight, :weight_control, :observation])
     end
 end

@@ -11,4 +11,3 @@ $('#turn_date').datepicker(
     daysOfWeekDisabled: '06'
     weekStart: 0
 )
-console.log "algo"
