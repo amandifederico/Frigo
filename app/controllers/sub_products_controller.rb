@@ -15,6 +15,7 @@ class SubProductsController < ApplicationController
   # GET /sub_products/new
   def new
     @sub_product = SubProduct.new
+    3.times { @sub_product.sub_product_details.build }
   end
 
   # GET /sub_products/1/edit
@@ -24,6 +25,7 @@ class SubProductsController < ApplicationController
   # POST /sub_products
   # POST /sub_products.json
   def create
+
     @sub_product = SubProduct.new(sub_product_params)
 
     respond_to do |format|
@@ -70,5 +72,7 @@ class SubProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_product_params
       params.require(:sub_product).permit(:lot_id, :observartion)
+
+      params.require(:sub_product).permit(:lot_id, :observartion, sub_product_details_attributes: [:id, :sub_product_type_id, :weight, :weight_control, :observation])
     end
 end

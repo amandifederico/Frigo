@@ -10,5 +10,27 @@
   <%= @turn.description %>
 </p>
 
+<table class="table table-striped table-bordered table-list">
+	<thead>
+	    <tr>
+	      <th class="hidden-xs">Agente</th>
+	      <th>Lugar</th>
+	      <th>Posicion</th>
+	      <th>Observacion</th>
+	    </tr> 
+	</thead>
+	<tbody>
+	  <% for details in @turn.turn_details %>
+	  	<tr>
+	  		<td><%= details.agent_id %></td>
+	  		<td><%= details.place_id %></td>
+	  		<td><%= details.position_id %></td>
+	  		<td><%= details.observation %></td>
+	  	</tr>
+	  <% end %>
+	</tbody>>
+</table>
+
+
 <%= link_to 'Edit', edit_turn_path(@turn) %> |
 <%= link_to 'Back', turns_path %>

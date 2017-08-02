@@ -15,6 +15,7 @@ class TurnsController < ApplicationController
   # GET /turns/new
   def new
     @turn = Turn.new
+    3.times { @turn.turn_details.build }
   end
 
   # GET /turns/1/edit
@@ -69,6 +70,6 @@ class TurnsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turn_params
-      params.require(:turn).permit(:date, :description)
+      params.require(:turn).permit(:date, :description, turn_details_attributes: [:id, :agent_id, :place_id, :position_id, :observation])
     end
 end

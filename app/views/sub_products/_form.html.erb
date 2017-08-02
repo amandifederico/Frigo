@@ -20,6 +20,26 @@
       <%= f.text_field :observartion, class: "form-control input-lg", placeholder: "Observacion"%>
     </div>
 
+    <table class="table table-striped table-bordered table-list">
+      <thead>
+        <tr>
+          <th class="hidden-xs">Tipo</th>
+          <th>Peso</th>
+          <th>Peso control</th>
+          <th>Observacion</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <%= f.fields_for :sub_product_details do |spd| %>
+          <tr>
+              <td><%= spd.collection_select :sub_product_type_id, SubProductType.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %></td>
+              <td><%= spd.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
+              <td><%= spd.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
+              <td><%= spd.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
     <div class="actions">
         <%= f.submit class: "btn btn-outline-success btn-block"%>

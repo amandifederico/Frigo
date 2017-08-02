@@ -24,6 +24,27 @@
       <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Productor"}, {class: "select2"} %>
     </div>
 
+
+    <table class="table table-striped table-bordered table-list">
+      <thead>
+        <tr>
+          <th class="hidden-xs">Animal</th>
+          <th>Cantidad</th>
+          <th>Observacion</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <%= f.fields_for :lot_details do |ld| %>
+          <tr>
+              <td><%= ld.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Animal"}, {class: "select2"} %></td>
+              <td><%= ld.number_field :quantity, class: "form-control input-lg", placeholder: "Cantidad"%></td>
+              <td><%= ld.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
+            </div>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
     <div class="actions">
         <%= f.submit class: "btn btn-outline-success btn-block"%>
     </div>

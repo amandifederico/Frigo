@@ -15,6 +15,7 @@ class LotsController < ApplicationController
   # GET /lots/new
   def new
     @lot = Lot.new
+    3.times { @lot.lot_details.build }
   end
 
   # GET /lots/1/edit
@@ -69,6 +70,6 @@ class LotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lot_params
-      params.require(:lot).permit(:senasa, :turn_id, :producer_id)
+      params.require(:lot).permit(:senasa, :turn_id, :producer_id, lot_details_attributes: [:id, :animal_id, :quantity, :observation])
     end
 end

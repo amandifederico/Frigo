@@ -20,16 +20,28 @@
       <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
     </div>
 
-
-    <ul>
-      <%= f.fields_for :product_details do |pd| %>
-
-        <li>
-          <%= pd.number_field :weight %>
+    <table class="table table-striped table-bordered table-list">
+      <thead>
+        <tr>
+          <th class="hidden-xs">Peso</th>
+          <th>Peso Control</th>
+          <th>Observacion</th>
+          <th></th>
+        </tr> 
+      </thead>
+      <tbody>
+        <%= f.fields_for :product_details do |pd| %>
+          <tr>
+            <td><%= pd.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
+            <td><%= pd.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
+            <td><%= pd.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
+            <td>"borrar"</td>
+          </tr>
           
-        </li>
-      <% end %>
-    </ul>
+        <% end %>
+
+      </tbody>
+    </table>
 
     <div class="actions">
         <%= f.submit class: "btn btn-outline-success btn-block"%>

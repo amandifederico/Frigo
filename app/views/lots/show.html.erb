@@ -15,5 +15,24 @@
   <%= @lot.producer %>
 </p>
 
+<table class="table table-striped table-bordered table-list">
+	<thead>
+	    <tr>
+	      <th class="hidden-xs">Animal</th>
+	      <th>Cantidad</th>
+	      <th>Observacion</th>
+	    </tr> 
+	</thead>
+	<tbody>
+	  <% for details in @lot.lot_details %>
+	  	<tr>
+	  		<td><%= details.animal_id %></td>
+	  		<td><%= details.quantity%></td>
+	  		<td><%= details.observation %></td>
+	  	</tr>
+	  <% end %>
+	</tbody>>
+</table>
+
 <%= link_to 'Edit', edit_lot_path(@lot) %> |
 <%= link_to 'Back', lots_path %>

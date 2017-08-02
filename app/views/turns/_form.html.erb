@@ -11,6 +11,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="form-group  row">
       <div class="input-group date datepicker col-sm-6">
         <%= f.text_field :date, placeholder: "Fecha", class: "form-control" %>
@@ -21,8 +22,29 @@
     </div>
 
     <div class="form-group">
-          <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
+      <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
     </div>
+
+    <table class="table table-striped table-bordered table-list">
+      <thead>
+        <tr>
+          <th class="hidden-xs">Agente</th>
+          <th>Lugar</th>
+          <th>Posicion</th>
+          <th>Observacion</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <%= f.fields_for :turn_details do |td| %>
+          <tr>
+            <td><%= td.collection_select :agent_id, Agent.all, :id, :to_s, {prompt: "Agente"}, {class: "select2"} %></td>
+            <td><%= td.collection_select :place_id, Place.all, :id, :to_s, {prompt: "Lugar"}, {class: "select2"} %></td>
+            <td><%= td.collection_select :position_id, Position.all, :id, :to_s, {prompt: "Posicion"}, {class: "select2"} %></td>
+            <td><%= td.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 
     <div class="actions">
