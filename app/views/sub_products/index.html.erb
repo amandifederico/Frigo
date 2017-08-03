@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sub Products</h1>
+<h1>Sub Productos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Lot</th>
-      <th>Observartion</th>
+      <th>Lote</th>
+      <th>Observacion</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
   <tbody>
     <% @sub_products.each do |sub_product| %>
       <tr>
-        <td><%= sub_product.lot %></td>
+        <td><%= sub_product.lot.senasa %></td>
         <td><%= sub_product.observartion %></td>
         <td><%= link_to 'Show', sub_product %></td>
         <td><%= link_to 'Edit', edit_sub_product_path(sub_product) %></td>

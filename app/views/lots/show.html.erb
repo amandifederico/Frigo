@@ -26,12 +26,12 @@
 	<tbody>
 	  <% for details in @lot.lot_details %>
 	  	<tr>
-	  		<td><%= details.animal_id %></td>
+	  		<td><%= details.animal %></td>
 	  		<td><%= details.quantity%></td>
 	  		<td><%= details.observation %></td>
 	  	</tr>
 	  <% end %>
-	</tbody>>
+	</tbody>
 </table>
 
 <%= link_to 'Edit', edit_lot_path(@lot) %> |

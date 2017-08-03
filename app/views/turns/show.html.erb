@@ -22,13 +22,13 @@
 	<tbody>
 	  <% for details in @turn.turn_details %>
 	  	<tr>
-	  		<td><%= details.agent_id %></td>
-	  		<td><%= details.place_id %></td>
-	  		<td><%= details.position_id %></td>
+	  		<td><%= details.agent %></td>
+	  		<td><%= details.place %></td>
+	  		<td><%= details.position %></td>
 	  		<td><%= details.observation %></td>
 	  	</tr>
 	  <% end %>
-	</tbody>>
+	</tbody>
 </table>
 
 
