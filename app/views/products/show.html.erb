@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Lot:</strong>
+  <strong>Lote:</strong>
   <%= @product.lot %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descripcion:</strong>
   <%= @product.description %>
 </p>
 
 <table class="table table-striped table-bordered table-list">
 	<thead>
 	    <tr>
-	      <th class="hidden-xs">Peso</th>
+	      <th>Peso</th>
 	      <th>Peso control</th>
 	      <th>Observacion</th>
 	    </tr> 
@@ -26,7 +24,7 @@
 	  		<td><%= details.observation %></td>
 	  	</tr>
 	  <% end %>
-	</tbody>>
+	</tbody>
 </table>
 
 

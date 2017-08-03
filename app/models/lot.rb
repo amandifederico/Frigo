@@ -5,7 +5,7 @@ class Lot < ApplicationRecord
   belongs_to :producer
 
   def to_s
-    senasa
+  	senasa.to_s + " ( " + producer.to_s + " )"
   end
 
 end

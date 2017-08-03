@@ -10,7 +10,9 @@
       <th>Weight</th>
       <th>Weight control</th>
       <th>Observation</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -22,9 +24,9 @@
         <td><%= sub_product_detail.weight %></td>
         <td><%= sub_product_detail.weight_control %></td>
         <td><%= sub_product_detail.observation %></td>
-        <td><%= link_to 'Show', sub_product_detail %></td>
-        <td><%= link_to 'Edit', edit_sub_product_detail_path(sub_product_detail) %></td>
-        <td><%= link_to 'Destroy', sub_product_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', sub_product_detail %></td>
+        <td><%= link_to 'Editar', edit_sub_product_detail_path(sub_product_detail) %></td>
+        <td><%= link_to 'Borrar', sub_product_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
