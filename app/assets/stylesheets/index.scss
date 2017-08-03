@@ -1,7 +1,7 @@
 
 
 
-btn-outline-primary:focus, .btn-outline-primary.focus {
+.btn-outline-primary:focus, .btn-outline-primary.focus {
     -webkit-box-shadow: 0 0 0 2px $rojo-sombra;
     box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
 }
@@ -135,7 +135,51 @@ a:hover{
 .table-user-information > tbody > tr > td {
   border-top: 0;
 }
-.toppad
-{margin-top:20px;
+
+.toppad{
+  margin-top:20px;
 }
 
+table.dataTable thead .sorting, 
+table.dataTable thead .sorting_asc, 
+table.dataTable thead .sorting_desc {
+    background : none;
+}
+
+.dataTables_wrapper .dataTables_filter input
+{
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+
+.dataTables_wrapper .dataTables_filter input:focus 
+{
+  border: 1px solid $rojo;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+
+.fa {
+  font-size: 1.3rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+td .form-control {
+  width: 90%;
+}
+
+
+.btn-back{
+  width: 20%;
+  float: left;
+}
+
+.btn-create{
+  width: 78%;
+  float: right;
+  margin: 0;
+}

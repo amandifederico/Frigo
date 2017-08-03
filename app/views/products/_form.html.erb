@@ -1,50 +1,49 @@
-<div class="col-sm-6">
-  <%= form_for(product) do |f| %>
-    <% if product.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-        <ul>
-        <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.collection_select :lot_id, Lot.all, :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
-    </div>
-
-    <div class="form-group">
-      <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
-    </div>
-
-    <table class="table table-striped table-bordered table-list">
-      <thead>
-        <tr>
-          <th class="hidden-xs">Peso</th>
-          <th>Peso Control</th>
-          <th>Observacion</th>
-          <th></th>
-        </tr> 
-      </thead>
-      <tbody>
-        <%= f.fields_for :product_details do |pd| %>
-          <tr>
-            <td><%= pd.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
-            <td><%= pd.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
-            <td><%= pd.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
-            <td>"borrar"</td>
-          </tr>
-          
-        <% end %>
-
-      </tbody>
-    </table>
-
-    <div class="actions">
-        <%= f.submit class: "btn btn-outline-success btn-block"%>
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+
+  <div class="form-group">
+    <%= f.collection_select :lot_id, Lot.all, :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
+  </div>
+
+  <table class="table table-striped table-bordered table-list">
+    <thead>
+      <tr>
+        <th class="hidden-xs">Peso</th>
+        <th>Peso Control</th>
+        <th>Observacion</th>
+        <th></th>
+      </tr> 
+    </thead>
+    <tbody>
+      <%= f.fields_for :product_details do |pd| %>
+        <tr>
+          <td><%= pd.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
+          <td><%= pd.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
+          <td><%= pd.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
+          <td>"borrar"</td>
+        </tr>
+        
+      <% end %>
+
+    </tbody>
+  </table>
+
+  <div class="actions" style="margin-top: 15px;">
+      <%= link_to 'Volver', products_path, class: "btn btn-outline-danger btn-back"%>
+      <%= f.submit class: "btn btn-outline-success btn-create"%>
+  </div>
+<% end %>
