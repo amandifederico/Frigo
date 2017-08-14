@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Transports</h1>
+<h1>Transportes</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Coupled</th>
-      <th>Capacity</th>
-      <th>Plate</th>
-      <th>Model</th>
-      <th>Driver</th>
+      <th>Acoplado</th>
+      <th>Capacidad</th>
+      <th>Patente</th>
+      <th>Modelo</th>
+      <th>Chofer</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,9 +22,12 @@
         <td><%= transport.plate %></td>
         <td><%= transport.model %></td>
         <td><%= transport.driver %></td>
-        <td><%= link_to 'Show', transport %></td>
-        <td><%= link_to 'Edit', edit_transport_path(transport) %></td>
-        <td><%= link_to 'Destroy', transport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), transport, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_transport_path(transport), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), transport, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+              
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lot Details</h1>
+<h1>Detalle lote</h1>
 
 <table>
   <thead>
@@ -20,9 +20,11 @@
         <td><%= lot_detail.animal %></td>
         <td><%= lot_detail.quantity %></td>
         <td><%= lot_detail.observation %></td>
-        <td><%= link_to 'Show', lot_detail %></td>
-        <td><%= link_to 'Edit', edit_lot_detail_path(lot_detail) %></td>
-        <td><%= link_to 'Destroy', lot_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), lot_detail, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_lot_detail_path(lot_detail), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), lot_detail, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -16,9 +16,12 @@
       <tr>
         <td><%= turn.date %></td>
         <td><%= turn.description %></td>
-        <td><%= link_to 'Show', turn %></td>
-        <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
-        <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), turn, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_turn_path(turn), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), turn, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+              
+        </td>
       </tr>
     <% end %>
   </tbody>

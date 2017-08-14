@@ -14,10 +14,14 @@
     <% @animal_types.each do |animal_type| %>
       <tr>
         <td><%= animal_type.description %></td>
-        <td><%= link_to 'Show', animal_type %></td>
-        <td><%= link_to 'Edit', edit_animal_type_path(animal_type) %></td>
-        <td><%= link_to 'Destroy', animal_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td>
+          <%= link_to (fa_icon "eye"), animal_type, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_animal_type_path(animal_type), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), animal_type, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+              
+        </td>
+
+      </tr>animal_type
     <% end %>
   </tbody>
 </table>

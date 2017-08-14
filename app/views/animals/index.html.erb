@@ -18,9 +18,11 @@
         <td><%= animal.description %></td>
         <td><%= animal.animal_type %></td>
         <td><%= animal.average_value %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), animal, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_animal_path(animal), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), animal, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

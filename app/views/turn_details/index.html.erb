@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Turn Details</h1>
+<h1>Detalle turnos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Turn</th>
-      <th>Agent</th>
-      <th>Place</th>
-      <th>Position</th>
-      <th>Observation</th>
+      <th>Turno</th>
+      <th>Agente</th>
+      <th>Lugar</th>
+      <th>Posicion</th>
+      <th>Observacion</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,9 +22,12 @@
         <td><%= turn_detail.place %></td>
         <td><%= turn_detail.position %></td>
         <td><%= turn_detail.observation %></td>
-        <td><%= link_to 'Show', turn_detail %></td>
-        <td><%= link_to 'Edit', edit_turn_detail_path(turn_detail) %></td>
-        <td><%= link_to 'Destroy', turn_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), turn_detail, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_turn_detail_path(turn_detail), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), turn_detail, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+              
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,18 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sub Product Details</h1>
+<h1>Detalle sub producto</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Sub product</th>
-      <th>Sub product type</th>
-      <th>Weight</th>
-      <th>Weight control</th>
-      <th>Observation</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Sub producto</th>
+      <th>Tipo sub producto</th>
+      <th>Peso</th>
+      <th>Peso de control</th>
+      <th>Observacion</th>
     </tr>
   </thead>
 
@@ -24,9 +21,11 @@
         <td><%= sub_product_detail.weight %></td>
         <td><%= sub_product_detail.weight_control %></td>
         <td><%= sub_product_detail.observation %></td>
-        <td><%= link_to 'Mostrar', sub_product_detail %></td>
-        <td><%= link_to 'Editar', edit_sub_product_detail_path(sub_product_detail) %></td>
-        <td><%= link_to 'Borrar', sub_product_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), sub_product_detail, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_sub_product_detail_path(sub_product_detail), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), sub_product_detail, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

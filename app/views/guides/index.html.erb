@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Guides</h1>
+<h1>Guias</h1>
 
 <table>
   <thead>
@@ -20,9 +20,11 @@
         <td><%= guide.city %></td>
         <td><%= guide.arrival_date %></td>
         <td><%= guide.transport %></td>
-        <td><%= link_to 'Show', guide %></td>
-        <td><%= link_to 'Edit', edit_guide_path(guide) %></td>
-        <td><%= link_to 'Destroy', guide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), guide, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_guide_path(guide), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), guide, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

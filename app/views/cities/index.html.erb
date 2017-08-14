@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cities</h1>
+<h1>Ciudades</h1>
 
 <table>
   <thead>
@@ -18,9 +18,11 @@
         <td><%= city.name %></td>
         <td><%= city.province %></td>
         <td><%= city.cp %></td>
-        <td><%= link_to 'Show', city %></td>
-        <td><%= link_to 'Edit', edit_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), city, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_city_path(city), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), city, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>      
+        </td>
       </tr>
     <% end %>
   </tbody>

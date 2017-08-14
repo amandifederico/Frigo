@@ -16,9 +16,12 @@
       <tr>
         <td><%= sub_product.lot.senasa %></td>
         <td><%= sub_product.observartion %></td>
-        <td><%= link_to 'Show', sub_product %></td>
-        <td><%= link_to 'Edit', edit_sub_product_path(sub_product) %></td>
-        <td><%= link_to 'Destroy', sub_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), sub_product, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_sub_product_path(sub_product), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), sub_product, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+              
+        </td>
       </tr>
     <% end %>
   </tbody>
