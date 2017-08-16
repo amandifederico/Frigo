@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Tipo de animales</h1>
 
 <table>
   <thead>
     <tr>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
@@ -21,11 +19,11 @@
               
         </td>
 
-      </tr>animal_type
+      </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Animal Type', new_animal_type_path %>
+<%= link_to 'New Animal Type', new_animal_type_path, {:class=>"btn btn-primary"} %>

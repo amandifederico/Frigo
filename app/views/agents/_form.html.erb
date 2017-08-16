@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
   <div class="col-sm-6">
-    <%= form_for agent, remote: true do |f| %>
+    <%= form_for agent, remote: true, id:"new_agent" do |f| %>
       <% if agent.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
@@ -57,12 +57,11 @@
   </div>
 </div>
 
-
 <script>
-
   $("#new_agent").on("ajax:success", function(e, data, status, xhr) {
-      console.log("Algo");
+    console.log("success");
   }).on("ajax:error", function(e, data, status, xhr) {
-      $("#new_agent").render_form_errors(data.responseJSON);
+    $("#new_agent").render_form_errors('agent',data.responseJSON)
+
   });
 </script>

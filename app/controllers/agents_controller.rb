@@ -32,8 +32,8 @@ class AgentsController < ApplicationController
         format.json { render :show, status: :created, location: @agent }
       else
         format.html { render :new }
-        format.json { render json: @agent.errors, status: :unprocessable_entity }
         
+        format.json { render json: @agent.errors, status: :unprocessable_entity }
       end
     end
   end
