@@ -7,6 +7,7 @@
       <th>Nombre</th>
       <th>Dni</th>
       <th>Posición</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -17,7 +18,7 @@
         <td><%= agent.name %></td>
         <td><%= agent.dni %></td>
         <td><%= agent.position %></td>
-        <td>agent
+        <td>
           <%= link_to (fa_icon "eye"), agent, class: 'btn btn-sm btn-success' %>
           <%= link_to (fa_icon "pencil-square-o"), edit_agent_path(agent), class: 'btn btn-sm btn-warning' %>
           <%= link_to (fa_icon "trash-o"), agent, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>

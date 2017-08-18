@@ -1,4 +1,4 @@
-<div class="col-sm-6">
+<div class="col-sm-6">  
   <%= form_for(position) do |f| %>
     <% if position.errors.any? %>
       <div id="error_explanation">
@@ -20,8 +20,13 @@
       <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
     </div>
 
-    <div class="actions">
-      <%= f.submit class: "btn btn-outline-success btn-block"%>
-    </div>
+    <div class="actions row">
+        <div class="col-sm-4">
+          <%= link_to 'Volver', positions_path, class: "btn btn-outline-primary btn-block" %>
+        </div>      
+        <div class="col-sm-8">
+          <%= f.submit class: "btn btn-outline-success btn-block"%>
+        </div>  
+      </div>
   <% end %>
 </div>

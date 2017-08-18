@@ -1,3 +1,4 @@
+$.ajaxSetup dataType: 'json'
 
 $(document).on 'turbolinks:load', ->
   $(".select2").select2({theme: "bootstrap"})
@@ -45,13 +46,11 @@ $.fn.render_form_errors = (model_name, errors) ->
   $("#new_dependence_of_agent").clear_form_errors()
   $.each(errors, (field, messages) ->
     field = field.substring(field.lastIndexOf(".")+1).replace("_id","")
-    console.log "CAMPO: " + field
     input = form.find('input, select, textarea').filter(->
       name = $(this).attr('name')
       campo = name.substring(name.lastIndexOf('[')+1).replace("]","").replace("_id", "")
       return field == campo
     )
-    console.log input
     input.closest('.form-group').addClass('has-danger')
     input.addClass('form-control-danger')
 
