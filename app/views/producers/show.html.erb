@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Razon social:</strong>
   <%= @producer.name %>
 </p>
 
@@ -23,6 +23,15 @@
 <p>
   <strong>Observation:</strong>
   <%= @producer.observation %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <% if @producer.active? %>
+      ACTIVO
+  <% else %>
+      INACTIVO
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_producer_path(@producer) %> |

@@ -5,6 +5,13 @@
 echo "Scaffold de tablas..."
 
 
+#
+#
+#
+#modificar
+#
+#
+#
 rails g scaffold Position name:string description:string
 #---------------
 rails g scaffold Place description:string
@@ -21,7 +28,7 @@ rails g scaffold TurnDetail turn:references agent:references place:references po
 #---------------
 rails g scaffold Producer name:string up_date:date down_date:date city:references observation:string
 #---------------
-rails g scaffold Lot senasa:integer turn:references producer:references 
+rails g scaffold Lot dte:integer turn:references producer:references 
 rails g scaffold LotDetail lot:references animal:references quantity:integer observation:string
 #---------------
 rails g scaffold Guide lot:references city:references arrival_date:date transport:references #ACA EN LA GUIA NECESITAMOS ORIGEN Y DESTINO

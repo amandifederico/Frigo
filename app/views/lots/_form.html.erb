@@ -13,7 +13,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.number_field :senasa, class: "form-control input-lg", placeholder: "Senasa"%>
+      <%= f.text_field :dte, class: "form-control input-lg", placeholder: "D.T.E"%>
     </div>
 
     <div class="form-group">
@@ -24,6 +24,9 @@
       <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Productor"}, {class: "select2"} %>
     </div>
 
+    <div class="form-group">
+      <%= f.text_field :close_code, class: "form-control input-lg", placeholder: "Codigo Cierre"%>
+    </div>
 
     <table class="table table-striped table-bordered table-list">
       <thead>

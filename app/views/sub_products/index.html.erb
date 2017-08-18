@@ -14,7 +14,7 @@
   <tbody>
     <% @sub_products.each do |sub_product| %>
       <tr>
-        <td><%= sub_product.lot.senasa %></td>
+        <td><%= sub_product.lot.dte %></td>
         <td><%= sub_product.observartion %></td>
         <td>
           <%= link_to (fa_icon "eye"), sub_product, class: 'btn btn-sm btn-success' %>

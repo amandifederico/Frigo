@@ -5,19 +5,20 @@
 <table class="table table-striped table-bordered table-list">
   <thead>
     <tr>
-      <th>Senasa</th>
-      <th>Turn</th>
-      <th>Producer</th>
-      <th colspan="3"></th>
+      <th>D.T.E</th>
+      <th>Turno</th>
+      <th>Abastecedor</th>
+      <th>Codigo cierre</th>
     </tr>
   </thead>
 
   <tbody>
     <% @lots.each do |lot| %>
       <tr>
-        <td><%= lot.senasa %></td>
+        <td><%= lot.dte %></td>
         <td><%= lot.turn %></td>
         <td><%= lot.producer %></td>
+        <td><%= lot.close_code %></td>        
         <td>
           <%= link_to (fa_icon "eye"), lot, class: 'btn btn-sm btn-success' %>
           <%= link_to (fa_icon "pencil-square-o"), edit_lot_path(lot), class: 'btn btn-sm btn-warning' %>

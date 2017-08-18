@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  senasa: 1
+  dte: 1
   turn: one
   producer: one
 
 two:
-  senasa: 1
+  dte: 1
   turn: two
   producer: two

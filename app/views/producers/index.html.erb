@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Productores</h1>
+<h1>Abastecedor</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
+      <th>Razon social</th>
       <th>Fecha de Alta</th>
       <th>Fecha de Baja</th>
       <th>Ciudad</th>
       <th>Observacion</th>
-      <th colspan="3"></th>
+      <th>Activo</th>
     </tr>
   </thead>
 
@@ -22,6 +22,7 @@
         <td><%= producer.down_date %></td>
         <td><%= producer.city %></td>
         <td><%= producer.observation %></td>
+        <td><%= producer.active %></td>
         <td>
           <%= link_to (fa_icon "eye"), producer, class: 'btn btn-sm btn-success' %>
           <%= link_to (fa_icon "pencil-square-o"), edit_producer_path(producer), class: 'btn btn-sm btn-warning' %>

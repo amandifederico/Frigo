@@ -17,7 +17,7 @@ class LotsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lot" do
     assert_difference('Lot.count') do
-      post lots_url, params: { lot: { producer_id: @lot.producer_id, senasa: @lot.senasa, turn_id: @lot.turn_id } }
+      post lots_url, params: { lot: { producer_id: @lot.producer_id, dte: @lot.dte, turn_id: @lot.turn_id } }
     end
 
     assert_redirected_to lot_url(Lot.last)
@@ -34,7 +34,7 @@ class LotsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lot" do
-    patch lot_url(@lot), params: { lot: { producer_id: @lot.producer_id, senasa: @lot.senasa, turn_id: @lot.turn_id } }
+    patch lot_url(@lot), params: { lot: { producer_id: @lot.producer_id, dte: @lot.dte, turn_id: @lot.turn_id } }
     assert_redirected_to lot_url(@lot)
   end
 
