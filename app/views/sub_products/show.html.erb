@@ -1,12 +1,12 @@
 
 
 <p>
-  <strong>Lot:</strong>
+  <strong>Lote:</strong>
   <%= @sub_product.lot.dte %>
 </p>
 
 <p>
-  <strong>Observartion:</strong>
+  <strong>Observacion:</strong>
   <%= @sub_product.observartion %>
 </p>
 
@@ -28,8 +28,8 @@
 	  		<td><%= details.observation %></td>
 	  	</tr>
 	  <% end %>
-	</tbody>>
+	</tbody>
 </table>
 
-<%= link_to 'Edit', edit_sub_product_path(@sub_product) %> |
-<%= link_to 'Back', sub_products_path %>
+<%= link_to 'Editar', edit_sub_product_path(@sub_product) %> |
+<%= link_to 'Volver', sub_products_path %>

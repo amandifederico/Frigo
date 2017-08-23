@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>Productor:</strong>
+  <strong>Abastecedor:</strong>
   <%= @lot.producer %>
 </p>
 
@@ -37,7 +37,18 @@
 	  	</tr>
 	  <% end %>
 	</tbody>
+	<tfoot>
+        <tr>
+            <th colspan="4" style="text-align:right">Total:</th>
+            <th><%= @lot.lot_details.sum('quantity') %></th>
+        </tr>
+    </tfoot>
 </table>
 
-<%= link_to 'Edit', edit_lot_path(@lot) %> |
-<%= link_to 'Back', lots_path %>
+
+
+
+
+
+<%= link_to 'Editar', edit_lot_path(@lot) %> |
+<%= link_to 'Volver', lots_path %>
