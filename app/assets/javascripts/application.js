@@ -23,6 +23,7 @@
 //= require dataTables/jquery.dataTables
 //= require toastr
 //= require select2
+//= require cocoon
 //= require index
 //= require_tree .
 

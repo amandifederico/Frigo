@@ -35,11 +35,7 @@ $(document).ready ->
       return
     return
   $('[data-toggle="tooltip"]').tooltip()
-  $('button').click (e) ->
-    e.preventDefault()
-    alert 'This is a demo.\n :-)'
-    return
-  return
+  
 
 $.fn.render_form_errors = (model_name, errors) ->
   form = this

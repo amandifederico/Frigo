@@ -30,19 +30,38 @@
         </tr> 
       </thead>
       <tbody>
-        <%= f.fields_for :sub_product_details do |spd| %>
-          <tr>
-              <td><%= spd.collection_select :sub_product_type_id, SubProductType.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %></td>
-              <td><%= spd.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
-              <td><%= spd.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
-              <td><%= spd.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
-          </tr>
+        <div class="form-group">
+        <%= f.fields_for :sub_product_details do |sub_product_details| %>
+          <%= render 'sub_product_detail_fields', :f => sub_product_details %>
         <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'add sbd', f, :sub_product_details %>
+        </div>
       </tbody>
     </table>
-
     <div class="actions">
-        <%= f.submit class: "btn btn-outline-success btn-block"%>
+      <%= f.submit class: "btn btn-success"%>
     </div>
   <% end %>
+  <!--div class="add-button" style="margin:15px;">
+      <button class="btn btn-success btn-sm" style="" onclick="add_subproduct_details()">
+        <%= fa_icon "users", text:"Agregar Subproducto", right: true%>
+      </button>
+    </div-->
 </div>
+
+
+<script type="text/javascript">
+  function add_subproduct_details(){
+    console.log("Lo")
+    $('#navbar-search').focus();
+    $.ajax({
+      url: '/sub_product/edit_with_details',
+      type: 'POST',
+    }).done(function(data) {
+      $('tbody').append('<tr><td></td><td><%= number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td><td><%= number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td><td><%= text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td></tr>');
+    }).fail(function(xhr, status, error) {
+      
+    });
+  }
+</script>

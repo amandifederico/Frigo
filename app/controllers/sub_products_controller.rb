@@ -15,11 +15,17 @@ class SubProductsController < ApplicationController
   # GET /sub_products/new
   def new
     @sub_product = SubProduct.new
-    3.times { @sub_product.sub_product_details.build }
+    
   end
 
   # GET /sub_products/1/edit
   def edit
+    
+  end
+
+  # Post 
+  def edit_with_details
+   
   end
 
   # POST /sub_products
