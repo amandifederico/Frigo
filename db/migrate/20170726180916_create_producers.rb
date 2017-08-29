@@ -6,6 +6,7 @@ class CreateProducers < ActiveRecord::Migration[5.0]
       t.date :down_date
       t.references :city, foreign_key: true
       t.string :observation
+      t.boolean :active
 
       t.timestamps
     end

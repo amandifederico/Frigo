@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816193355) do
+ActiveRecord::Schema.define(version: 20170727152047) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "last_name"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20170816193355) do
     t.string   "dte"
     t.integer  "turn_id"
     t.integer  "producer_id"
+    t.string   "close_code"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "close_code"
     t.index ["producer_id"], name: "index_lots_on_producer_id"
     t.index ["turn_id"], name: "index_lots_on_turn_id"
   end
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20170816193355) do
     t.string   "observation"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.boolean  "active"
     t.index ["city_id"], name: "index_producers_on_city_id"
   end
 

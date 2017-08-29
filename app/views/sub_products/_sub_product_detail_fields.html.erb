@@ -1,5 +1,5 @@
-<tr>
-	<td><%= f.collection_select :sub_product_type_id, SubProductType.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %></td>
+<tr class="detail-field">
+	<td><%= f.collection_select :sub_product_type_id, SubProductType.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2 form-control input-lg"} %></td>
 	<td><%= f.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
 	<td><%= f.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
 	<td><%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>

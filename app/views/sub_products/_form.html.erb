@@ -1,4 +1,4 @@
-<div class="col-sm-8">
+<div class="col-sm-12">
   <%= form_for(sub_product) do |f| %>
     <% if sub_product.errors.any? %>
       <div id="error_explanation">
@@ -29,9 +29,7 @@
             <th>Observacion</th>
         </tr> 
       </thead>
-
-      <tbody>
-        <div class="form-group">
+      <tbody class="sub_product_details">
           <%= f.fields_for :sub_product_details do |sub_product_details| %>
             <%= render 'sub_product_detail_fields', :f => sub_product_details %>
           <% end %>
@@ -40,7 +38,7 @@
     </table>
 
     <div class='links'>
-      <%= link_to_add_association 'Agregar Subproducto', f, :sub_product_details %>
+      <%= link_to_add_association 'Agregar Subproducto', f, :sub_product_details, data: { association_insertion_node: '.sub_product_details', association_insertion_method: :append } %>
     </div>
     
     <div class="actions">
@@ -48,3 +46,12 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $('#new_sub_product').bind('cocoon:after-insert',
+    function(e) {
+      console.log('Insertando Select 2');
+      
+    });
+
+</script>

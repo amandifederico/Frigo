@@ -10,7 +10,7 @@ $(document).on 'turbolinks:load', ->
     todayHighlight: true
   })
   
-  $("table").DataTable 
+  $(".datatable").DataTable 
     'language':'url':'//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json'
     'bPaginate': false
     'info': false

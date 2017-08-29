@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
   <div class="col-sm-6">
-    <%= form_for agent, remote: true, id:"new_agent" do |f| %>
+    <%= form_for agent,  id:"new_agent" do |f| %>
       <% if agent.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
