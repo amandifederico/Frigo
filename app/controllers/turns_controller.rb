@@ -20,6 +20,12 @@ class TurnsController < ApplicationController
 
   # GET /turns/1/edit
   def edit
+    @turn = Turn.find(params[:id])
+  end
+
+  # Post 
+  def edit_with_details
+   
   end
 
   # POST /turns
@@ -41,6 +47,7 @@ class TurnsController < ApplicationController
   # PATCH/PUT /turns/1
   # PATCH/PUT /turns/1.json
   def update
+    @turn = Turn.find(params[:id])
     respond_to do |format|
       if @turn.update(turn_params)
         format.html { redirect_to @turn, notice: 'Turn was successfully updated.' }
@@ -70,6 +77,6 @@ class TurnsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turn_params
-      params.require(:turn).permit(:date, :description, turn_details_attributes: [:id, :agent_id, :place_id, :position_id, :observation])
+      params.require(:turn).permit(:date, :description, turn_details_attributes: [:id, :agent_id, :place_id, :position_id, :observation, :_destroy])
     end
 end
