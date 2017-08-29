@@ -31,22 +31,21 @@
     <table class="table table-striped table-bordered table-list">
       <thead>
         <tr>
-          <th class="hidden-xs">Animal</th>
+          <th>Animal</th>
           <th>Cantidad</th>
           <th>Observacion</th>
         </tr> 
       </thead>
       <tbody>
         <%= f.fields_for :lot_details do |ld| %>
-          <tr>
-              <td><%= ld.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Animal"}, {class: "select2"} %></td>
-              <td><%= ld.number_field :quantity, class: "form-control input-lg", placeholder: "Cantidad"%></td>
-              <td><%= ld.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
-            </div>
-          </tr>
+              <%= render 'lot_detail_fields', :f => ld %>
         <% end %>
       </tbody>
     </table>
+
+    <div class='links'>
+      <%= link_to_add_association 'Agregar Lote', f, :lot_details %>
+    </div>
 
     <div class="actions">
         <%= f.submit class: "btn btn-outline-success btn-block"%>

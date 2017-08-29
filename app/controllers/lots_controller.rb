@@ -22,6 +22,12 @@ class LotsController < ApplicationController
   def edit
   end
 
+  # Post 
+  def edit_with_details
+   
+  end
+
+
   # POST /lots
   # POST /lots.json
   def create

@@ -22,25 +22,22 @@
   <table class="table table-striped table-bordered table-list">
     <thead>
       <tr>
-        <th class="hidden-xs">Peso</th>
+        <th>Peso</th>
         <th>Peso Control</th>
         <th>Observacion</th>
         <th></th>
       </tr> 
     </thead>
     <tbody>
-      <%= f.fields_for :product_details do |pd| %>
-        <tr>
-          <td><%= pd.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
-          <td><%= pd.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
-          <td><%= pd.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
-          <td>"borrar"</td>
-        </tr>
-        
-      <% end %>
-
+        <%= f.fields_for :product_details do |pd| %>
+            <%= render 'product_detail_fields', :f => pd %>
+        <% end %>
     </tbody>
   </table>
+
+  <div class='links'>
+    <%= link_to_add_association 'Agregar Produccion', f, :product_details %>
+  </div>
 
   <div class="actions" style="margin-top: 15px;">
       <%= link_to 'Volver', products_path, class: "btn btn-outline-danger btn-back"%>
