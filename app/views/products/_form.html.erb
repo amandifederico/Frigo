@@ -28,7 +28,7 @@
         <th></th>
       </tr> 
     </thead>
-    <tbody>
+    <tbody class="product_details">
         <%= f.fields_for :product_details do |pd| %>
             <%= render 'product_detail_fields', :f => pd %>
         <% end %>
@@ -36,7 +36,7 @@
   </table>
 
   <div class='links'>
-    <%= link_to_add_association 'Agregar Produccion', f, :product_details %>
+    <%= link_to_add_association 'Agregar Produccion', f, :product_details, data: { association_insertion_node: '.product_details', association_insertion_method: :append } %>
   </div>
 
   <div class="actions" style="margin-top: 15px;">
@@ -44,3 +44,12 @@
       <%= f.submit class: "btn btn-outline-success btn-create"%>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#new_products').bind('cocoon:after-insert',
+    function(e) {
+      console.log('Insertando Select 2');
+      
+    });
+
+</script>

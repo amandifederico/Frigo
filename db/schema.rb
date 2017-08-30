@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20170727152047) do
     t.date     "down_date"
     t.integer  "city_id"
     t.string   "observation"
+    t.boolean  "active"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["city_id"], name: "index_producers_on_city_id"

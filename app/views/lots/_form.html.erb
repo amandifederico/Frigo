@@ -1,4 +1,4 @@
-<div class="col-sm-6">  
+<div class="col-sm-12">  
   <%= form_for(lot) do |f| %>
     <% if lot.errors.any? %>
       <div id="error_explanation">
@@ -36,7 +36,7 @@
           <th>Observacion</th>
         </tr> 
       </thead>
-      <tbody>
+      <tbody class="lot_details">
         <%= f.fields_for :lot_details do |ld| %>
               <%= render 'lot_detail_fields', :f => ld %>
         <% end %>
@@ -44,7 +44,7 @@
     </table>
 
     <div class='links'>
-      <%= link_to_add_association 'Agregar Lote', f, :lot_details %>
+      <%= link_to_add_association 'Agregar Lote', f, :lot_details, data: { association_insertion_node: '.lot_details', association_insertion_method: :append } %>
     </div>
 
     <div class="actions">
@@ -52,3 +52,12 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $('#new_lot').bind('cocoon:after-insert',
+    function(e) {
+      console.log('Insertando Select 2');
+      
+    });
+
+</script>

@@ -34,7 +34,7 @@
             <th>Observacion</th>
           </tr> 
       </thead>
-      <tbody>
+      <tbody class="turn_details">
             <%= f.fields_for :turn_details do |td| %>
               <%= render 'turn_detail_fields', :f => td %>
             <% end %>
@@ -42,7 +42,7 @@
     </table>
 
     <div class='links'>
-      <%= link_to_add_association 'Agregar Turno', f, :turn_details %>
+      <%= link_to_add_association 'Agregar Turno', f, :turn_details, data: { association_insertion_node: '.turn_details', association_insertion_method: :append } %>
     </div>
 
     <div class="actions">
@@ -50,3 +50,12 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $('#new_turn').bind('cocoon:after-insert',
+    function(e) {
+      console.log('Insertando Select 2');
+      
+    });
+
+</script>

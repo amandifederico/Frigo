@@ -14,6 +14,7 @@ $(document).on 'turbolinks:load', ->
     'language':'url':'//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json'
     'bPaginate': false
     'info': false
+    
 
 $(document).ready ->
   panels = $('.user-infos')
