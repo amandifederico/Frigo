@@ -69,6 +69,6 @@ class SubProductDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_product_detail_params
-      params.require(:sub_product_detail).permit(:sub_product_id, :sub_product_type_id, :weight, :weight_control, :observation)
+      params.require(:sub_product_detail).permit(:sub_product_id, :sub_product_type_id, :weight, :green, :processed, :red, :caliber, :observation)
     end
 end

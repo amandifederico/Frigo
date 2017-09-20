@@ -13,9 +13,12 @@
 <table id="tabla" class="datatable table-striped table-bordered table-list">
 	<thead>
 	    <tr>
-	      <th >Tipo</th>
+	      <th>Tipo</th>
 	      <th>Peso</th>
-	      <th>Peso control</th>
+	      <th>Peso Verde</th>
+	      <th>Peso Procesado</th>
+	      <th>Peso Rojo</th>
+	      <th>Calibre</th>
 	      <th>Observacion</th>
 	    </tr> 
 	</thead>
@@ -24,11 +27,25 @@
 	  	<tr>
 	  		<td><%= details.sub_product_type %></td>
 	  		<td><%= details.weight %></td>
-	  		<td><%= details.weight_control %></td>
+	  		<td><%= details.green %></td>
+	  		<td><%= details.processed %></td>
+	  		<td><%= details.red %></td>
+	  		<td><%= details.caliber %></td>
 	  		<td><%= details.observation %></td>
 	  	</tr>
 	  <% end %>
 	</tbody>
+	<tfoot>
+        <tr>
+        	<th>Subtotales</th>
+            <th><%= @sub_product.sub_product_details.sum('weight') %></th>
+            <th><%= @sub_product.sub_product_details.sum('green') %></th>
+            <th><%= @sub_product.sub_product_details.sum('processed') %></th>
+            <th><%= @sub_product.sub_product_details.sum('red') %></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>
 </table>
 
 <%= link_to 'Editar', edit_sub_product_path(@sub_product) %> |

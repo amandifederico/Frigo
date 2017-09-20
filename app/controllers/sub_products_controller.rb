@@ -79,6 +79,6 @@ class SubProductsController < ApplicationController
     def sub_product_params
       params.require(:sub_product).permit(:lot_id, :observartion)
 
-      params.require(:sub_product).permit(:lot_id, :observartion, sub_product_details_attributes: [:id, :sub_product_type_id, :weight, :weight_control, :observation])
+      params.require(:sub_product).permit(:lot_id, :observartion, sub_product_details_attributes: [:id, :sub_product_type_id, :weight, :green, :processed, :red, :caliber, :observation])
     end
 end

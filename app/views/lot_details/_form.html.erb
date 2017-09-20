@@ -13,7 +13,7 @@
   <% end %>
 
     <div class="form-group">
-      <%= f.collection_select :lot_id, Lot.all, :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
+      <%= f.collection_select :lot_id, Lot.where(:close_code=>''), :id, :to_s, {prompt: "Lote"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">

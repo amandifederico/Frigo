@@ -96,6 +96,10 @@ ActiveRecord::Schema.define(version: 20170727152047) do
 
   create_table "producers", force: :cascade do |t|
     t.string   "name"
+    t.integer  "cuit"
+    t.integer  "telephone"
+    t.string   "email"
+    t.string   "address"
     t.date     "up_date"
     t.date     "down_date"
     t.integer  "city_id"
@@ -138,7 +142,10 @@ ActiveRecord::Schema.define(version: 20170727152047) do
     t.integer  "sub_product_id"
     t.integer  "sub_product_type_id"
     t.integer  "weight"
-    t.integer  "weight_control"
+    t.integer  "green"
+    t.integer  "processed"
+    t.integer  "red"
+    t.integer  "caliber"
     t.string   "observation"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
