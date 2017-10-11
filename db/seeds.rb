@@ -38,16 +38,21 @@ turno.save
 ciudad = City.new(name:"Rawson", province:"Chubut", cp:"9103")
 ciudad.save
 
+ciudad2 = City.new(name:"Esquel", province:"Chubut", cp:"9200")
+ciudad2.save
+
 productor = Producer.new(name:"Emmanuel Dominguez", up_date:"20-02-2016", down_date:"", city:ciudad, observation:"Un Crack") 
 productor.save
 
+productor = Producer.new(name:"Axel Ginzery", up_date:"20-02-2016", down_date:"", city:ciudad2, observation:"El Nuevo Licenciado") 
+productor.save
 
 animal_types_list = [
 				['Bovino'],
 				['Ovino'],
 				['Porcino']
 ]
-animal_types_list.each do | description|
+animal_types_list.each do |description|
 	AnimalType.find_or_create_by(description:description)
 end
 
@@ -63,3 +68,60 @@ animals_list.each do |description, animal_type_id, average_value|
 	Animal.find_or_create_by(description:description, animal_type_id:animal_type_id, average_value:average_value)
 end
 
+sub_product_types_list = [
+					['mondongo'],
+					['chinchulines'],
+					['corazón'],
+					['lengua'],
+					['sesos'],
+					['cuero']
+]
+sub_product_types_list.each do |description|
+	SubProductType.find_or_create_by(description:description)
+end
+
+places_list = [
+			['corral1A'],
+			['corral1B'],
+			['corral2A'],
+			['corral2B'],
+]
+
+places_list.each do |description|
+	Place.find_or_create_by(description:description)
+end
+
+
+#---- Creando Posiciones
+positions_list = [
+	['Corralero','Trabaja en los corrales'],
+	['Sereno','Cuida la planta'],
+	['Administrativo','Papeleo']
+]
+positions_list.each do |name, description|
+	Position.find_or_create_by(name: name, description: description)
+end
+
+#---- Creando Agentes
+agents_list = [
+	['Amandi', 'Federico', 31636675, 1, '01-10-2017'],
+	['Geoffroy', 'Silvio', 31923381, 2, '01-08-2017']
+]
+
+agents_list.each do |last_name, name, dni, position_id, up_date|
+	Agent.find_or_create_by(last_name: last_name, name: name, dni:dni, position_id: position_id, up_date:up_date)
+end
+
+#---- Creando un Turno
+turno = Turn.new(date:'27-03-2016')
+turno.save
+
+#---- Creando Detalles de Turno
+turn_details_list = [
+	[1, 1, 1, 'Detalle 1'],
+	[2, 2, 2, 'Detalle 2']
+]
+
+turn_details_list.each do |turn_id, agent_id, place_id, observation|
+	TurnDetail.find_or_create_by(turn_id:turn_id, agent_id:agent_id, place_id:place_id, observation:observation)
+end

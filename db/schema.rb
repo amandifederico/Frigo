@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 20170727152047) do
 
   create_table "producers", force: :cascade do |t|
     t.string   "name"
-    t.integer  "cuit"
-    t.integer  "telephone"
+    t.integer  "cuit",        limit: 8
+    t.integer  "telephone",   limit: 8
     t.string   "email"
     t.string   "address"
     t.date     "up_date"
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 20170727152047) do
     t.integer  "city_id"
     t.string   "observation"
     t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["city_id"], name: "index_producers_on_city_id"
   end
 
