@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(version: 20170727152047) do
   create_table "agents", force: :cascade do |t|
     t.string   "last_name"
     t.string   "name"
-    t.integer  "dni"
+    t.integer  "dni",         limit: 8
     t.integer  "position_id"
     t.date     "up_date"
     t.date     "down_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["position_id"], name: "index_agents_on_position_id"
   end
 

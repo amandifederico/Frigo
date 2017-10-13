@@ -26,8 +26,12 @@
 	  <% end %>
 	</tbody>
 	<tfoot>
+	    <tr>
+            <th colspan="4" style="text-align:right">Total :</th>
+            <th><%= @product.product_details.sum('weight') %></th>
+        </tr>
         <tr>
-            <th colspan="4" style="text-align:right">Total:</th>
+            <th colspan="4" style="text-align:right">Total Control:</th>
             <th><%= @product.product_details.sum('weight_control') %></th>
         </tr>
     </tfoot>
