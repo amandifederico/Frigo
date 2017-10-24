@@ -7,7 +7,9 @@
     <tr>
       <th>Producto</th>
       <th>Peso</th>
-      <th>Peso de control</th>
+      <% if current_user.A? %>
+          <th>Peso de control</th>
+      <%end%>
       <th>Observacion</th>
       <th>Opciones</th>
     </tr>
@@ -18,7 +20,9 @@
       <tr>
         <td><%= product_detail.product %></td>
         <td><%= product_detail.weight %></td>
-        <td><%= product_detail.weight_control %></td>
+        <% if current_user.A? %>
+            <td><%= product_detail.weight_control %></td>
+        <% end %>
         <td><%= product_detail.observation %></td>
         <td>
           <%= link_to (fa_icon "eye"), product_detail, class: 'btn btn-sm btn-success' %>
