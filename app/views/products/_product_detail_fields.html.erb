@@ -1,6 +1,6 @@
 <tr class="detail-field">
 	<td><%= f.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
-	<% if current_user.A? %>
+	<% if current_user.A?  or current_user.admin?%>
 		<td><%= f.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
 	<% end %>
 	<td><%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>

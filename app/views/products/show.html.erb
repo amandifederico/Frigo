@@ -12,7 +12,7 @@
 	<thead>
 	    <tr>
 	      <th>Peso</th>
-	      <% if current_user.A? %>
+	      <% if current_user.A?  or current_user.admin?%>
 	      		<th>Peso control</th>
 	      <%end%>
 	      <th>Observacion</th>
@@ -22,7 +22,7 @@
 	  <% for details in @product.product_details %>
 	  	<tr>
 	  		<td><%= details.weight %></td>
-	  		<% if current_user.A? %>
+	  		<% if current_user.A?  or current_user.admin?%>
 	  			<td><%= details.weight_control %></td>
 	  		<%end%>
 	  		<td><%= details.observation %></td>
@@ -34,7 +34,7 @@
             <th colspan="4" style="text-align:right">Total :</th>
             <th><%= @product.product_details.sum('weight') %></th>
         </tr>
-        <% if current_user.A? %>
+        <% if current_user.A?  or current_user.admin? %>
 	        <tr>
 	            <th colspan="4" style="text-align:right">Total Control:</th>
 	            <th><%= @product.product_details.sum('weight_control') %></th>

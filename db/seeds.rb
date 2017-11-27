@@ -13,23 +13,23 @@ user.password = "quitar1234"
 user.save!
 user.add_role "admin"
 
-#user = User.new
-#user.email = "usuarioa@index.com"
-#user.password = "usuarioa"
-#user.save!
-#user.add_role "A"
+user = User.new
+user.email = "usuarioa@index.com"
+user.password = "usuarioa"
+user.save!
+user.add_role "A"
 
-#user = User.new
-#user.email = "usuariob@index.com"
-#user.password = "usuariob"
-#user.save!
-#user.add_role "B"
+user = User.new
+user.email = "usuariob@index.com"
+user.password = "usuariob"
+user.save!
+user.add_role "B"
 
-#user = User.new
-#user.email = "usuarioc@index.com"
-#user.password = "usuarioc"
-#user.save!
-#user.add_role "C"
+user = User.new
+user.email = "usuarioc@index.com"
+user.password = "usuarioc"
+user.save!
+user.add_role "C"
 
 
 turno = Turn.new(date:'27-03-2016')
