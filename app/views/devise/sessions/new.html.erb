@@ -1,26 +1,272 @@
-<h2>Log in</h2>
+<h1> Página Inicial </h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<% if !user_signed_in? %>
+  <div class="col-sm-4">  
+    <div class="outline">
+      <center><h2>Loguearse</h2></center>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f| %>
+      <center><img id="profile-img" class="login-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /></center>
+      <div class="form-group">
+            <%= f.text_field :email, :placeholder => "Email", class: "form-control" %> 
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="form-group">
+          <%= f.password_field :password, :placeholder => "Password", class: "form-control"  %>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label 'recordarme' %>
+          </div>
+      <% end %>
+      <%= f.submit 'Entrar', class: "btn btn-primary btn-block btn-login" %>
+      <% end %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+<% else %>
+  <% if current_user.admin? %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="outline">
+          <center><h2>Datos</h2></center>
+          <div class="row">
+            <div class="col-sm-4">
+              <a href="/agents" class="btn btn-menu btn-primary">
+                  <i class="fa fa-file-text-o"></i><br/>
+                  Agentes
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/animals" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Animales
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/cities" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Ciudades
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/guides" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Guias
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/lots" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Lotes
+                </a>
+          </div>
+
+
+
+          <div class="col-sm-4">
+                <a href="/places" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Lugar
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/positions" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Posicion
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/producers" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Abastecedor
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/products" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Produccion
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/animal_types" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Tipo animal
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/sub_products" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Sub productos
+                </a>
+          </div>
+
+
+
+          <div class="col-sm-4">
+                <a href="/sub_product_types" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Tipo sub producto
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/transports" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Transporte
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/turns" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Turnos
+                </a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="outline">
+          <center><h2>Operaciones</h2></center>
+          <div class="row">
+            <div class="col-sm-4">
+              <a href="#" class="btn btn-menu btn-primary">
+                  <i class="fa fa-file-text-o"></i><br/>
+                  Certificación
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="#" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Análisis de Costos
+                </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%if current_user.A? %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="outline">
+          <center><h2>Perfil Rol A</h2></center>
+          <div class="row">
+            <div class="col-sm-4">
+              <a href="/agents" class="btn btn-menu btn-primary">
+                  <i class="fa fa-file-text-o"></i><br/>
+                  Agentes
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/turns" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Turnos
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/cities" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Ciudades
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/producers" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Productores
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/transports" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Transportes
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/lots" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Lote
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/guides" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Guias
+                </a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="outline">
+          <center><h2>Funciones</h2></center>
+          <div class="row">
+            <div class="col-sm-4">
+              <a href="#" class="btn btn-menu btn-primary">
+                  <i class="fa fa-file-text-o"></i><br/>
+                  Opcion 1
+                </a>
+          </div>
+          <div class="col-sm-4">
+              <a href="#" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Opcion 2
+                </a>
+          </div>
+          <div class="col-sm-4">
+              <a href="#" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Opcion 3
+                </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%if current_user.B? %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="outline">
+          <center><h2>Perfil Rol B</h2></center>
+          <div class="row">
+            <div class="col-sm-4">
+              <a href="/products" class="btn btn-menu btn-primary">
+                  <i class="fa fa-file-text-o"></i><br/>
+                  Producto
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/product_details" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Detalle producto
+                </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%if current_user.C? %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="outline">
+          <center><h2>Perfil Rol C</h2></center>
+          <div class="row">
+            <div class="col-sm-4">
+              <a href="/sub_products" class="btn btn-menu btn-primary">
+                  <i class="fa fa-file-text-o"></i><br/>
+                  Sub Producto
+                </a>
+          </div>
+          <div class="col-sm-4">
+                <a href="/sub_product_details" class="btn btn-menu btn-primary">
+                  <i class="fa fa-calculator"></i><br/>
+                  Detalle Sub producto
+                </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
