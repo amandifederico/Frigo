@@ -69,6 +69,6 @@ class TransportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transport_params
-      params.require(:transport).permit(:coupled, :capacity, :plate, :model, :driver)
+      params.require(:transport).permit(:coupled, :capacity, :plate, :model, :driver, :weight)
     end
 end

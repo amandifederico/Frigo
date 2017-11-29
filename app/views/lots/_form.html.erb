@@ -17,11 +17,49 @@
     </div>
 
     <div class="form-group">
+      <%= f.collection_select :range_troop_number_id, RangeTroopNumber.all, :id, :to_s, {prompt: "Numero de tropa"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group  row">
+      <div class="input-group date datepicker col-sm-4">
+        <%= f.text_field :cargo_date, placeholder: "Fecha cargo", class: "form-control" %>
+          <span class="input-group-addon ">
+            <%= fa_icon "list"%>
+          </span>
+      </div>
+    </div>
+
+    <div class="form-group  row">
+      <div class="input-group date datepicker col-sm-4">
+        <%= f.text_field :expiration_date, placeholder: "Fecha vencimiento", class: "form-control" %>
+          <span class="input-group-addon ">
+            <%= fa_icon "list"%>
+          </span>
+      </div>
+    </div>
+
+    <div class="form-group">
       <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Turno"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
       <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Abastecedor"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.collection_select :transport_id, Transport.all, :id, :to_s, {prompt: "Transporte"}, {class: "select2"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :seal_number, class: "form-control input-lg", placeholder: "Nro precinto"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.number_field :liveweight, class: "form-control input-lg", placeholder: "Peso vivo"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.number_field :quantity_control, class: "form-control input-lg", placeholder: "Control de cantidad"%>
     </div>
 
     <div class="form-group">

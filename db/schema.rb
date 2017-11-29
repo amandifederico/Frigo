@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727152047) do
+ActiveRecord::Schema.define(version: 20171129113040) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "last_name"
@@ -74,10 +74,19 @@ ActiveRecord::Schema.define(version: 20170727152047) do
     t.string   "dte"
     t.integer  "turn_id"
     t.integer  "producer_id"
+    t.integer  "range_troop_number_id"
+    t.date     "cargo_date"
+    t.date     "expiration_date"
+    t.integer  "transport_id"
+    t.string   "seal_number"
+    t.integer  "liveweight"
+    t.integer  "quantity_control"
     t.string   "close_code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["producer_id"], name: "index_lots_on_producer_id"
+    t.index ["range_troop_number_id"], name: "index_lots_on_range_troop_number_id"
+    t.index ["transport_id"], name: "index_lots_on_transport_id"
     t.index ["turn_id"], name: "index_lots_on_turn_id"
   end
 
@@ -97,6 +106,7 @@ ActiveRecord::Schema.define(version: 20170727152047) do
   create_table "producers", force: :cascade do |t|
     t.string   "name"
     t.integer  "cuit",        limit: 8
+    t.string   "renspa"
     t.integer  "telephone",   limit: 8
     t.string   "email"
     t.string   "address"
@@ -126,6 +136,13 @@ ActiveRecord::Schema.define(version: 20170727152047) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["lot_id"], name: "index_products_on_lot_id"
+  end
+
+  create_table "range_troop_numbers", force: :cascade do |t|
+    t.integer  "min"
+    t.integer  "max"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -173,6 +190,7 @@ ActiveRecord::Schema.define(version: 20170727152047) do
     t.string   "plate"
     t.string   "model"
     t.string   "driver"
+    t.integer  "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

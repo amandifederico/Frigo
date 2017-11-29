@@ -39,6 +39,8 @@ rails g scaffold Guide lot:references city:references arrival_date:date transpor
 rails g scaffold AnimalType description:string #ejemplo: bovino, ovino, porcino, etc
 rails g scaffold Animal description:string animal_type:references average_value:integer # ejemplo: Vaca Australiana, Bovino, 100kg
 #---------------
+rails g scaffold RangeTroopNumber min:integer max:integer
+#---------------
 rails g scaffold Product lot:references description:string #ejemplo: faena del lote X
 rails g scaffold ProductDetail product:references weight:integer weight_control:integer observation:string #ejemplo 100kg, 98kg, algo paso
 #---------------

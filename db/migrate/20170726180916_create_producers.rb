@@ -3,6 +3,7 @@ class CreateProducers < ActiveRecord::Migration[5.0]
     create_table :producers do |t|
       t.string :name
       t.integer :cuit, :limit => 8
+      t.string :renspa
       t.integer :telephone, :limit => 8
       t.string :email
       t.string :address

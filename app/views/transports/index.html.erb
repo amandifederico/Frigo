@@ -10,6 +10,7 @@
       <th>Patente</th>
       <th>Modelo</th>
       <th>Chofer</th>
+      <th>Peso</th>
       <th>Opciones</th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= transport.plate %></td>
         <td><%= transport.model %></td>
         <td><%= transport.driver %></td>
+        <td><%= transport.weight %></td>      
         <td>
           <%= link_to (fa_icon "eye"), transport, class: 'btn btn-sm btn-success' %>
           <%= link_to (fa_icon "pencil-square-o"), edit_transport_path(transport), class: 'btn btn-sm btn-warning' %>

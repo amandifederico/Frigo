@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Numero de tropa</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Min</th>
+      <th>Max</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @range_troop_numbers.each do |range_troop_number| %>
+      <tr>
+        <td><%= range_troop_number.min %></td>
+        <td><%= range_troop_number.max %></td>
+        <td><%= link_to 'Show', range_troop_number %></td>
+        <td><%= link_to 'Edit', edit_range_troop_number_path(range_troop_number) %></td>
+        <td><%= link_to 'Destroy', range_troop_number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Range Troop Number', new_range_troop_number_path %>

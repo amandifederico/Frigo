@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Min:</strong>
+  <%= @range_troop_number.min %>
+</p>
+
+<p>
+  <strong>Max:</strong>
+  <%= @range_troop_number.max %>
+</p>
+
+<%= link_to 'Edit', edit_range_troop_number_path(@range_troop_number) %> |
+<%= link_to 'Back', range_troop_numbers_path %>

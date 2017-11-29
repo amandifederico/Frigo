@@ -1,0 +1,27 @@
+<%= form_for(range_troop_number) do |f| %>
+  <% if range_troop_number.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(range_troop_number.errors.count, "error") %> prohibited this range_troop_number from being saved:</h2>
+
+      <ul>
+      <% range_troop_number.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :min %>
+    <%= f.number_field :min %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max %>
+    <%= f.number_field :max %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

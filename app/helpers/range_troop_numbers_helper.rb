@@ -1,0 +1,2 @@
+module RangeTroopNumbersHelper
+end

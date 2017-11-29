@@ -47,6 +47,13 @@ productor.save
 productor = Producer.new(name:"Axel Ginzery", up_date:"20-02-2016", down_date:"", city:ciudad2, observation:"El Nuevo Licenciado") 
 productor.save
 
+transport = Transport.new(coupled:4433, capacity:30, plate:"jkl678", model:2003, driver:"Juan Carlos", weight:100)
+transport.save
+
+range_troop_numer = RangeTroopNumber.new(min:150, max:250)
+range_troop_numer.save
+
+
 animal_types_list = [
 				['Bovino'],
 				['Ovino'],

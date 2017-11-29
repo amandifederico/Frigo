@@ -25,5 +25,10 @@
   <%= @transport.driver %>
 </p>
 
+<p>
+  <strong>Peso:</strong>
+  <%= @transport.weight %>
+</p>
+
 <%= link_to 'Editar', edit_transport_path(@transport) %> |
 <%= link_to 'Volver', transports_path %>
