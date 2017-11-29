@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :range_troop_number_id, RangeTroopNumber.all, :id, :to_s, {prompt: "Numero de tropa"}, {class: "select2"} %>
+      <%= f.number_field :troop_number, class: "form-control input-lg", placeholder: "Nº de Tropa"%>
     </div>
 
     <div class="form-group  row">
@@ -81,10 +81,12 @@
       </tbody>
     </table>
 
-    <div class='links'>
-      <%= link_to_add_association 'Agregar item', f, :lot_details, data: { association_insertion_node: '.lot_details', association_insertion_method: :append } %>
-    </div>
-
+    <center>
+      <div class='links'>
+        <%= link_to_add_association (fa_icon "plus"), f, :lot_details, data: { association_insertion_node: '.lot_details', association_insertion_method: :append }, class: "btn btn-outline-primary btn-xs"  %>
+      </div>
+    </center>
+    <br>
     <div class="actions">
         <%= f.submit class: "btn btn-outline-success btn-block"%>
     </div>

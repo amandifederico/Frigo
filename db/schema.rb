@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20171129113040) do
     t.string   "dte"
     t.integer  "turn_id"
     t.integer  "producer_id"
-    t.integer  "range_troop_number_id"
+    t.integer  "troop_number"
     t.date     "cargo_date"
     t.date     "expiration_date"
     t.integer  "transport_id"
@@ -82,10 +82,9 @@ ActiveRecord::Schema.define(version: 20171129113040) do
     t.integer  "liveweight"
     t.integer  "quantity_control"
     t.string   "close_code"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["producer_id"], name: "index_lots_on_producer_id"
-    t.index ["range_troop_number_id"], name: "index_lots_on_range_troop_number_id"
     t.index ["transport_id"], name: "index_lots_on_transport_id"
     t.index ["turn_id"], name: "index_lots_on_turn_id"
   end

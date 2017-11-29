@@ -4,7 +4,7 @@ class CreateLots < ActiveRecord::Migration[5.0]
       t.string :dte
       t.references :turn, foreign_key: true
       t.references :producer, foreign_key: true
-      t.references :range_troop_number, foreign_key: true
+      t.integer :troop_number
       t.date :cargo_date
       t.date :expiration_date
       t.references :transport, foreign_key: true

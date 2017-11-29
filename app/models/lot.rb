@@ -3,6 +3,7 @@ class Lot < ApplicationRecord
   accepts_nested_attributes_for :lot_details, :reject_if => proc { |attributes| attributes['animal_id'].blank? }
   belongs_to :turn
   belongs_to :producer
+  
   validates :producer, presence: true
 
   def to_s
