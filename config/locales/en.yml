@@ -241,13 +241,13 @@ en:
         submit: Guardar Guia
         update: Actualizar Guia
       lot_detail:
-        create: Crear Detalle Lote
-        submit: Guardar Detalle Lote
-        update: Actualizar Detalle Lote
+        create: Crear Detalle Tropa
+        submit: Guardar Detalle Tropa
+        update: Actualizar Detalle Tropa
       lot:
-        create: Crear Lote
-        submit: Guardar Lote
-        update: Actualizar Lote
+        create: Crear Tropa
+        submit: Guardar Tropa
+        update: Actualizar Tropa
       place:
         create: Crear Lugar
         submit: Guardar Lugar
