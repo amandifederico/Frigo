@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129113040) do
+ActiveRecord::Schema.define(version: 20171219143810) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "last_name"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20171129113040) do
     t.integer  "cp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "drivers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.integer  "dni"
+    t.string   "observation"
+    t.integer  "transport_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["transport_id"], name: "index_drivers_on_transport_id"
   end
 
   create_table "guides", force: :cascade do |t|
@@ -121,12 +132,16 @@ ActiveRecord::Schema.define(version: 20171129113040) do
 
   create_table "product_details", force: :cascade do |t|
     t.integer  "product_id"
+    t.integer  "type_id"
+    t.integer  "animal_id"
     t.integer  "weight"
     t.integer  "weight_control"
     t.string   "observation"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["animal_id"], name: "index_product_details_on_animal_id"
     t.index ["product_id"], name: "index_product_details_on_product_id"
+    t.index ["type_id"], name: "index_product_details_on_type_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -188,7 +203,6 @@ ActiveRecord::Schema.define(version: 20171129113040) do
     t.integer  "capacity"
     t.string   "plate"
     t.string   "model"
-    t.string   "driver"
     t.integer  "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -210,6 +224,13 @@ ActiveRecord::Schema.define(version: 20171129113040) do
 
   create_table "turns", force: :cascade do |t|
     t.date     "date"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

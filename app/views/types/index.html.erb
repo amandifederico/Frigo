@@ -1,0 +1,30 @@
+
+<h1>Tipos</h1>
+
+<table class="datatable table-striped table-bordered table-list">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @types.each do |type| %>
+      <tr>
+        <td><%= type.name %></td>
+        <td><%= type.description %></td>
+        <td>
+          <%= link_to (fa_icon "eye"), type, class: 'btn btn-sm btn-success' %>
+          <%= link_to (fa_icon "pencil-square-o"), edit_type_path(type), class: 'btn btn-sm btn-warning' %>
+          <%= link_to (fa_icon "trash-o"), type, method: :delete, data: { confirm: '¿Seguro desea eliminar este registro?' }, class: 'btn btn-sm btn-danger' %>
+              
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Tipo', new_type_path %>

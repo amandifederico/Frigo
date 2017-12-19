@@ -1,0 +1,29 @@
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @driver.name %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @driver.last_name %>
+</p>
+
+<p>
+  <strong>DNI:</strong>
+  <%= @driver.dni %>
+</p>
+
+<p>
+  <strong>Observacion:</strong>
+  <%= @driver.observation %>
+</p>
+
+<p>
+  <strong>Transporte:</strong>
+  <%= @driver.transport %>
+</p>
+
+<%= link_to 'Editar', edit_driver_path(@driver) %> |
+<%= link_to 'Volver', drivers_path %>

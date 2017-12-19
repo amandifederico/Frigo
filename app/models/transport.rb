@@ -1,5 +1,5 @@
 class Transport < ApplicationRecord
   def to_s
-    driver
+    model+" "+plate
   end
 end
