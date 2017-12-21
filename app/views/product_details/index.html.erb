@@ -1,14 +1,12 @@
-
-
-<h1>Detalle de produccion</h1>
+<h1>Detalle de producción</h1>
 
 <table class="datatable table-striped table-bordered table-list">
   <thead>
     <tr>
       <th>Producto</th>
-      <th>Peso</th>
+      <th>Peso (Kg)</th>
       <% if current_user.A? %>
-          <th>Peso de control</th>
+          <th>Peso de control (Kg)</th>
       <%end%>
       <th>Observacion</th>
       <th>Opciones</th>
@@ -37,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Product Detail', new_product_detail_path %>
+<%= link_to 'Nuevo detalle producción', new_product_detail_path %>

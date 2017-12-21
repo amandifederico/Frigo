@@ -4,6 +4,7 @@ class CreateLotDetails < ActiveRecord::Migration[5.0]
       t.references :lot, foreign_key: true
       t.references :animal, foreign_key: true
       t.integer :quantity
+      t.integer :fallen
       t.string :observation
 
       t.timestamps

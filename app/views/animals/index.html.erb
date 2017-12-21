@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Descripción</th>
+      <th>Sigla</th>
       <th>Tipo</th>
       <th>Peso Promedio</th>
       <th>Opciones</th>
@@ -17,6 +18,7 @@
     <% @animals.each do |animal| %>
       <tr>
         <td><%= animal.description %></td>
+        <td><%= animal.initials %></td>
         <td><%= animal.animal_type.to_s %></td>
         <td><%= animal.average_value %></td>
         <td>

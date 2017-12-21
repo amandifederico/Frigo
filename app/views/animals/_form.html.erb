@@ -17,6 +17,10 @@
     </div>
 
     <div class="form-group">
+      <%= f.text_field :initials, class: "form-control input-lg", placeholder: "Sigla"%>
+    </div>
+
+    <div class="form-group">
       <%= f.collection_select :animal_type_id, AnimalType.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %>
     </div>
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :types
+  resources :drivers
   resources :range_troop_numbers
   resources :product_details
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

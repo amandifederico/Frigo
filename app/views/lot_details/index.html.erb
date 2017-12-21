@@ -5,9 +5,10 @@
 <table class="datatable table-striped table-bordered table-list">
   <thead>
     <tr>
-      <th>Lote</th>
+      <th>Tropa</th>
       <th>Animal</th>
       <th>Cantidad</th>
+      <th>Caidos</th>
       <th>Observacion</th>
       <th>Opciones</th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= lot_detail.lot %></td>
         <td><%= lot_detail.animal %></td>
         <td><%= lot_detail.quantity %></td>
+        <td><%= lot_detail.fallen %></td>
         <td><%= lot_detail.observation %></td>
         <td>
           <%= link_to (fa_icon "eye"), lot_detail, class: 'btn btn-sm btn-success' %>

@@ -47,7 +47,7 @@ productor.save
 productor = Producer.new(name:"Axel Ginzery", up_date:"20-02-2016", down_date:"", city:ciudad2, observation:"El Nuevo Licenciado") 
 productor.save
 
-transport = Transport.new(coupled:4433, capacity:30, plate:"jkl678", model:2003, driver:"Juan Carlos", weight:100)
+transport = Transport.new(coupled:4433, capacity:30, plate:"jkl678", model:2003, weight:100)
 transport.save
 
 range_troop_numer = RangeTroopNumber.new(min:150, max:250)
@@ -64,15 +64,28 @@ animal_types_list.each do |description|
 end
 
 animals_list = [
-				['Toro',1,465],
-				['Vaca',1,465],
-				['Vaquillona',1,465],
-				['Ternero',1,465],
-				['Ternera',1,465],
-				['Novillo',1,465]
+				['Mamón',1,250,'MM'],
+				['Ternero M',1,300,'TM'],
+				['Ternero H',1,300,'TH'],
+				['Vaquillona',1,350,'VQ'],
+				['Novillito',1,350,'NT'],
+				['Novillo',1,420,'NO'],
+				['Vaca',1,0,'VA'],
+				['Toro',1,0,'TOR'],
+				['Mamones',2,0,'MA'],
+				['Borregos',2,0,'TOR'],
+				['Corderos',2,0,'CD'],
+				['Capones y Ovejas',2,0,'CV'],
+				['Capones',3,0,'CA'],
+				['Chanchas',3,0,'CH'],
+				['Cachorros',3,0,'CO'],
+				['Padrillos',3,0,'PA'],
+				['Torunos',3,0,'TO'],
+				['Lechones',3,0,'LE']
+
 ]
-animals_list.each do |description, animal_type_id, average_value|
-	Animal.find_or_create_by(description:description, animal_type_id:animal_type_id, average_value:average_value)
+animals_list.each do |description, animal_type_id, average_value, initials|
+	Animal.find_or_create_by(description:description, animal_type_id:animal_type_id, average_value:average_value, initials:initials)
 end
 
 sub_product_types_list = [
