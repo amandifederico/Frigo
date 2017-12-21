@@ -20,7 +20,8 @@ rails g scaffold City name:string province:string cp:integer
 #---------------
 rails g scaffold Agent last_name:string name:string dni:integer position:references up_date:date down_date:date
 #---------------
-rails g scaffold Transport coupled:integer capacity:integer plate:string model:string driver:string
+rails g scaffold Transport coupled:integer capacity:integer plate:string model:string driver:references
+rails g scaffold Driver name:string last_name:string dni:integer 
 #---------------
 
 rails g scaffold Turn date:date description:string

@@ -39,11 +39,11 @@
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Turno"}, {class: "select2"} %>
+      <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Abastecedor"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Abastecedor"}, {class: "select2"} %>
+      <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Turno"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
