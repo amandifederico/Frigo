@@ -69,6 +69,6 @@ class LotDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lot_detail_params
-      params.require(:lot_detail).permit(:lot_id, :animal_id, :quantity, :observation)
+      params.require(:lot_detail).permit(:lot_id, :animal_id, :quantity, :fallen, :observation)
     end
 end

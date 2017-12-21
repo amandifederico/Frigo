@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171219143810) do
     t.string   "description"
     t.integer  "animal_type_id"
     t.integer  "average_value"
+    t.string   "initials"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["animal_type_id"], name: "index_animals_on_animal_type_id"
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 20171219143810) do
     t.integer  "lot_id"
     t.integer  "animal_id"
     t.integer  "quantity"
+    t.integer  "fallen"
     t.string   "observation"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 20171219143810) do
     t.string   "dte"
     t.integer  "turn_id"
     t.integer  "producer_id"
+    t.integer  "city_id"
     t.integer  "troop_number"
     t.date     "cargo_date"
     t.date     "expiration_date"
@@ -95,6 +98,7 @@ ActiveRecord::Schema.define(version: 20171219143810) do
     t.string   "close_code"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["city_id"], name: "index_lots_on_city_id"
     t.index ["producer_id"], name: "index_lots_on_producer_id"
     t.index ["transport_id"], name: "index_lots_on_transport_id"
     t.index ["turn_id"], name: "index_lots_on_turn_id"

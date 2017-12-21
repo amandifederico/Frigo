@@ -4,7 +4,7 @@ class CreateAnimals < ActiveRecord::Migration[5.0]
       t.string :description
       t.references :animal_type, foreign_key: true
       t.integer :average_value
-
+      t.string :initials
       t.timestamps
     end
   end
