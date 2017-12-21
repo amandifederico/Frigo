@@ -2,20 +2,20 @@
   <strong>Tropa:</strong>
   <%= @product.lot %>
 </p>
-
 <p>
   <strong>Descripcion:</strong>
   <%= @product.description %>
 </p>
-
 <p>
   <strong>Estado:</strong>
   
 </p>
-
 <table class="datatable table-striped table-bordered table-list">
 	<thead>
 	    <tr>
+	      <th>Producción</th>
+	      <th>Tipo</th>
+	      <th>Animal</th>
 	      <th>Peso</th>
 	      <% if current_user.A?  or current_user.admin?%>
 	      		<th>Peso control</th>
@@ -26,6 +26,9 @@
 	<tbody>
 	  <% for details in @product.product_details %>
 	  	<tr>
+	  		<td><%= details.product %></td>
+	  		<td><%= details.type %></td>
+	  		<td><%= details.animal %></td>
 	  		<td><%= details.weight %></td>
 	  		<% if current_user.A?  or current_user.admin?%>
 	  			<td><%= details.weight_control %></td>

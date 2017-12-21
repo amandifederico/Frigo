@@ -16,11 +16,11 @@
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :product_id, Type.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %>
+      <%= f.collection_select :type_id, Type.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :product_id, Animal.all, :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
+      <%= f.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
