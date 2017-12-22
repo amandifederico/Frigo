@@ -12,7 +12,11 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.collection_select :product_id, Product.all, :id, :to_s, {prompt: "Producto"}, {class: "select2"} %>
+      <% if @prod %>
+        <%= f.collection_select :product_id, Product.where(id: @prod), :id, :to_s, {},{class: "select2",:disabled => true} %>
+      <% else %>
+        <%= f.collection_select :product_id, Product.all(), :id, :to_s, {prompt: "Producto"}, {class: "select2"} %>
+      <% end %>      
     </div>
 
     <div class="form-group">

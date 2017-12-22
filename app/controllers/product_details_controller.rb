@@ -14,6 +14,8 @@ class ProductDetailsController < ApplicationController
 
   # GET /product_details/new
   def new
+    
+    @prod = params[:prod]
     @product_detail = ProductDetail.new
   end
 
