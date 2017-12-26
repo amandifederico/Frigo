@@ -26,12 +26,19 @@ class ProductDetailsController < ApplicationController
   # POST /product_details
   # POST /product_details.json
   def create
+    @flag = params[:product_detail][:flag]
     @product_detail = ProductDetail.new(product_detail_params)
 
     respond_to do |format|
       if @product_detail.save
-        format.html { redirect_to @product_detail, notice: 'Product detail was successfully created.' }
-        format.json { render :show, status: :created, location: @product_detail }
+        byebug
+        if @flag
+          format.html { redirect_to "/product_details/new?prod=1", notice: 'Product detail was successfully created.' }
+          format.json { render :show, status: :created, location: @product_detail }
+        else
+          format.html { redirect_to @product_detail, notice: 'Product detail was successfully created.' }
+          format.json { render :show, status: :created, location: @product_detail }
+        end
       else
         format.html { render :new }
         format.json { render json: @product_detail.errors, status: :unprocessable_entity }
