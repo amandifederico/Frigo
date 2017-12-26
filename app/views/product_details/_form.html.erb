@@ -11,16 +11,21 @@
       </div>
     <% end %>
 
+    <%=@prod%>
     <div class="form-group">
-      <%= f.collection_select :product_id, Product.all, :id, :to_s, {prompt: "Producto"}, {class: "select2"} %>
+      <% if @prod %>
+        <%= f.collection_select :product_id, Product.where(id: @prod), :id, :to_s, {:selected => @prod},{class: "select2"}%>
+      <% else %>
+        <%= f.collection_select :product_id, Product.all(), :id, :to_s, {prompt: "Producto"}, {class: "select2"} %>
+      <% end %>      
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :product_id, Type.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %>
+      <%= f.collection_select :type_id, Type.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :product_id, Animal.all, :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
+      <%= f.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
     </div>
 
     <div class="form-group">
@@ -35,7 +40,20 @@
       <%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%>
     </div>
 
-    <div class="actions">
-        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    <% if @prod %>
+      <%= f.hidden_field :flag, value: true %>
+    <% end %>
+
+    <div class="actions row">
+        <div class="col-sm-4">
+          <% if @prod %>
+            <%= link_to 'Volver', "/production_line", class: "btn btn-outline-primary btn-block" %>
+          <% else %>
+            <%= link_to 'Volver', product_details_path, class: "btn btn-outline-primary btn-block" %>
+          <% end %>          
+        </div>      
+        <div class="col-sm-8">
+          <%= f.submit class: "btn btn-outline-success btn-block"%>
+        </div>  
     </div>
 <% end %>

@@ -4,6 +4,6 @@ class Product < ApplicationRecord
 	belongs_to :lot
 
 	def to_s
-		description
+		lot description
 	end
 end

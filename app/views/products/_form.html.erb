@@ -19,28 +19,6 @@
     <%= f.text_field :description, class: "form-control input-lg", placeholder: "Descripcion"%>
   </div>
 
-  <table class="table table-striped table-bordered table-list">
-    <thead>
-      <tr>
-        <th>Peso</th>
-        <% if current_user.A?  or current_user.admin?%>
-            <th>Peso Control</th>
-        <%end%>
-        <th>Observacion</th>
-        <th></th>
-      </tr> 
-    </thead>
-    <tbody class="product_details">
-        <%= f.fields_for :product_details do |pd| %>
-            <%= render 'product_detail_fields', :f => pd %>
-        <% end %>
-    </tbody>
-  </table>
-
-  <div class='links'>
-    <%= link_to_add_association 'Agregar Produccion', f, :product_details, data: { association_insertion_node: '.product_details', association_insertion_method: :append } %>
-  </div>
-
   <div class="actions" style="margin-top: 15px;">
       <%= link_to 'Volver', products_path, class: "btn btn-outline-danger btn-back"%>
       <%= f.submit class: "btn btn-outline-success btn-create"%>

@@ -14,6 +14,8 @@ class ProductDetailsController < ApplicationController
 
   # GET /product_details/new
   def new
+    
+    @prod = params[:prod]
     @product_detail = ProductDetail.new
   end
 
@@ -24,12 +26,19 @@ class ProductDetailsController < ApplicationController
   # POST /product_details
   # POST /product_details.json
   def create
+    @flag = params[:product_detail][:flag]
     @product_detail = ProductDetail.new(product_detail_params)
 
     respond_to do |format|
       if @product_detail.save
-        format.html { redirect_to @product_detail, notice: 'Product detail was successfully created.' }
-        format.json { render :show, status: :created, location: @product_detail }
+        byebug
+        if @flag
+          format.html { redirect_to "/product_details/new?prod=1", notice: 'Product detail was successfully created.' }
+          format.json { render :show, status: :created, location: @product_detail }
+        else
+          format.html { redirect_to @product_detail, notice: 'Product detail was successfully created.' }
+          format.json { render :show, status: :created, location: @product_detail }
+        end
       else
         format.html { render :new }
         format.json { render json: @product_detail.errors, status: :unprocessable_entity }
@@ -69,6 +78,6 @@ class ProductDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_detail_params
-      params.require(:product_detail).permit(:product_id, :weight, :weight_control, :observation)
+      params.require(:product_detail).permit(:product_id, :type_id, :animal_id, :weight, :weight_control, :observation)
     end
 end

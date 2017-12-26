@@ -1,4 +1,6 @@
 <tr class="detail-field">
+	<td><%= f.collection_select :type_id, Type.all(), :id, :to_s, {prompt: "Tipo"}, {class: "select2"} %></td>
+	<td><%= f.collection_select :type_id, Animal.all(), :id, :to_s, {prompt: "Animal"}, {class: "select2"} %></td>
 	<td><%= f.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%></td>
 	<% if current_user.A?  or current_user.admin?%>
 		<td><%= f.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%></td>
