@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   post '/sub_product/edit_with_details' => 'sub_products#edit_with_details'
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "welcome#index"  

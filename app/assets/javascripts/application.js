@@ -18,6 +18,7 @@
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
+//= require bootstrap/modal
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
 //= require toastr

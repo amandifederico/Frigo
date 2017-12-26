@@ -1,9 +1,6 @@
-
-
-
 .btn-outline-primary:focus, .btn-outline-primary.focus {
-    -webkit-box-shadow: 0 0 0 2px $primary-color-sombra;
-    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+  -webkit-box-shadow: 0 0 0 2px $primary-color-sombra;
+  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
 }
 
 
@@ -182,4 +179,44 @@ td .form-control {
   width: 78%;
   float: right;
   margin: 0;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+
+}
+
+.control-label {
+  text-align: right;
+  margin-bottom: 0;
+  padding-top: 7px;
+  font-size: 0.9rem;
+}
+
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+
+.form-control {
+  width: auto;
+  max-width: 225px;
+}
+
+.input-group-addon {
+  padding:0px;
+}
+
+
+.select2 {
+  float:left;
+}
+
+.btn-form{
+  min-width: 100px;
 }

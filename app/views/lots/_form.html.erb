@@ -1,101 +1,157 @@
-<div class="col-sm-10">  
-  <%= form_for(lot) do |f| %>
-    <% if lot.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(lot.errors.count, "error") %> prohibited this lot from being saved:</h2>
+<%= form_for(lot) do |f| %>
+  <% if lot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lot.errors.count, "error") %> prohibited this lot from being saved:</h2>
 
-        <ul>
-        <% lot.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.text_field :dte, class: "form-control input-lg", placeholder: "D.T.E"%>
+      <ul>
+      <% lot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    
+    <!-- DTE -->
+    <label class="col-sm-2 control-label">
+      D.T.E.:
+    </label>
+    <div class="col-sm-10 controls" style="margin-bottom: 10px;">
+      <%= f.text_field :dte, class: "form-control", placeholder: "012345678-1"%>
+      <span class="help-block">Obligatorio. </span>
+    </div>
+    
+    <!-- Nº de Tropa -->
+    <label class="col-sm-2 control-label">
+      Nº de Tropa:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.text_field :troop_number, class: "form-control input-lg", placeholder: "123456"%>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.number_field :troop_number, class: "form-control input-lg", placeholder: "Nº de Tropa"%>
-    </div>
-
-    <div class="form-group  row">
-      <div class="input-group date datepicker col-sm-4">
+    <!-- Fecha de Cargo -->
+    <label class="col-sm-2 control-label">
+      Fecha de Cargo:
+    </label>
+    <div class="col-sm-10 controls">
+      <div class="input-group date datepicker">
         <%= f.text_field :cargo_date, placeholder: "Fecha cargo", class: "form-control" %>
           <span class="input-group-addon ">
             <%= fa_icon "list"%>
           </span>
       </div>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group  row">
-      <div class="input-group date datepicker col-sm-4">
-        <%= f.text_field :expiration_date, placeholder: "Fecha vencimiento", class: "form-control" %>
+    <!-- Fecha de Expiracion -->
+    <label class="col-sm-2 control-label">
+      Fecha de Vencimiento:
+    </label>
+    <div class="col-sm-10 controls">
+      <div class="input-group date datepicker">
+        <%= f.text_field :expiration_date, placeholder: "Fecha cargo", class: "form-control" %>
           <span class="input-group-addon ">
             <%= fa_icon "list"%>
           </span>
       </div>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Turno"}, {class: "select2"} %>
+
+    <!-- Turno -->
+    <label class="col-sm-2 control-label">
+      Turno:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.collection_select :turn_id, Turn.all, :id, :to_s, {prompt: "Seleccionar"}, {class: "select2", style: "min-width:225px;float:left;"} %>
+      
+      <%= link_to 'Create category', new_turn_path, data: { modal: true } %>
+      <a href="#" class="btn btn-info btn-form" id="update_turn" style="margin-left: 10px;">Actualizar</a>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Abastecedor"}, {class: "select2"} %>
+    <!-- Abastecedor -->
+    <label class="col-sm-2 control-label">
+      Abastecedor:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.collection_select :producer_id, Producer.all, :id, :to_s, {prompt: "Seleccionar"}, {class: "select2", style: "min-width:225px;float:left;"} %>
+      <a href="#" class="btn btn-info btn-form" id="create_turn" style="margin-left: 10px;">Agregar</a>
+      <a href="#" class="btn btn-info btn-form" id="update_turn" style="margin-left: 10px;">Actualizar</a>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.collection_select :city_id, City.all, :id, :to_s, {prompt: "Origen"}, {class: "select2"} %>
+    <!-- Ciudad -->
+    <label class="col-sm-2 control-label">
+      Ciudad:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.collection_select :city_id, City.all, :id, :to_s, {prompt: "Seleccionar"}, {class: "select2", style: "min-width:225px;float:left;"} %>
+      <a href="#" class="btn btn-info btn-form" id="create_turn" style="margin-left: 10px;">Agregar</a>
+      <a href="#" class="btn btn-info btn-form" id="update_turn" style="margin-left: 10px;">Actualizar</a>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.collection_select :transport_id, Transport.all, :id, :to_s, {prompt: "Transporte"}, {class: "select2"} %>
+    <!-- Transporte -->
+    <label class="col-sm-2 control-label">
+      Transporte:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.collection_select :transport_id, Transport.all, :id, :to_s, {prompt: "Seleccionar"}, {class: "select2", style: "min-width:225px;float:left;"} %>
+      <a href="#" class="btn btn-info btn-form" id="create_turn" style="margin-left: 10px;">Agregar</a>
+      <a href="#" class="btn btn-info btn-form" id="update_turn" style="margin-left: 10px;">Actualizar</a>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.text_field :seal_number, class: "form-control input-lg", placeholder: "Nro precinto"%>
+    <!-- Nº de Precinto -->
+    <label class="col-sm-2 control-label">
+      Número de Precinto:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.text_field :seal_number, class: "form-control input-lg", placeholder: "000"%>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.number_field :liveweight, class: "form-control input-lg", placeholder: "Peso vivo"%>
+    <!-- Peso Vivo -->
+    <label class="col-sm-2 control-label">
+      Peso Vivo:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.text_field :liveweight, class: "form-control input-lg", placeholder: "000"%>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.number_field :quantity_control, class: "form-control input-lg", placeholder: "Control de cantidad"%>
+    <!-- Control de Cantidad -->
+    <label class="col-sm-2 control-label">
+      Control de Cantidad:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.text_field :quantity_control, class: "form-control input-lg", placeholder: "000"%>
+      <span class="help-block">Obligatorio. </span>
     </div>
 
-    <div class="form-group">
-      <%= f.text_field :close_code, class: "form-control input-lg", placeholder: "Codigo Cierre"%>
+    <!-- Código de Cierre -->
+    <label class="col-sm-2 control-label">
+      Código de Cierre:
+    </label>
+    <div class="col-sm-10 controls">
+      <%= f.text_field :close_code, class: "form-control input-lg", placeholder: "000"%>
+      <span class="help-block">Obligatorio. </span>
     </div>
-
-    <table class="table table-striped table-bordered table-list">
-      <thead>
-        <tr>
-          <th>Animal</th>
-          <th>Cantidad</th>
-          <th>Observacion</th>
-        </tr> 
-      </thead>
-      <tbody class="lot_details">
-        <%= f.fields_for :lot_details do |ld| %>
-              <%= render 'lot_detail_fields', :f => ld %>
-        <% end %>
-      </tbody>
-    </table>
-
-    <center>
-      <div class='links'>
-        <%= link_to_add_association (fa_icon "plus"), f, :lot_details, data: { association_insertion_node: '.lot_details', association_insertion_method: :append }, class: "btn btn-outline-primary btn-xs"  %>
-      </div>
-    </center>
-    <br>
-    <div class="actions">
-        <%= f.submit class: "btn btn-outline-success btn-block"%>
+    <label class="col-sm-2 control-label">
+      
+    </label>
+    <div class="col-sm-10">
+      <%= link_to 'Volver', lots_path, class: "btn btn-outline-danger"%>
+      <%= f.submit class: "btn btn-outline-success "%>
     </div>
-  <% end %>
-</div>
+  </div>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+  <br>
+  
+<% end %>
+  
 
 <script type="text/javascript">
   $('#new_lot').bind('cocoon:after-insert',
