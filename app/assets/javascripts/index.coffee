@@ -65,3 +65,10 @@ $.fn.clear_form_fields = () ->
       .val('')
       .removeAttr('checked')
       .removeAttr('selected')
+
+
+$(document).on 'turbolinks:before-cache', ->
+  dataTable =  $($.fn.dataTable.tables(true)).DataTable()
+  if (dataTable != null)
+    dataTable.destroy()
+    dataTable = null

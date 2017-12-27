@@ -14,8 +14,8 @@ class ProductDetailsController < ApplicationController
 
   # GET /product_details/new
   def new
-    
-    @prod = params[:prod]
+    product_id = params[:prod]
+    @product = Product.where(id: product_id).first
     @product_detail = ProductDetail.new
   end
 
@@ -31,7 +31,6 @@ class ProductDetailsController < ApplicationController
 
     respond_to do |format|
       if @product_detail.save
-        byebug
         if @flag
           format.html { redirect_to "/product_details/new?prod=1", notice: 'Product detail was successfully created.' }
           format.json { render :show, status: :created, location: @product_detail }
