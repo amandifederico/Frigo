@@ -236,6 +236,10 @@ en:
         create: Crear Ciudad
         submit: Guardar Ciudad
         update: Actualizar Ciudad
+      driver:
+        create: Crear Chofer
+        submit: Guardar Chofer
+        update: Actualizar Chofer
       guide:
         create: Crear Guia
         submit: Guardar Guia

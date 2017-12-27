@@ -10,8 +10,7 @@
         </ul>
       </div>
     <% end %>
-
-    <%=@prod%>
+    
     <div class="form-group">
       <% if @prod %>
         <%= f.collection_select :product_id, Product.where(id: @prod), :id, :to_s, {:selected => @prod},{class: "select2"}%>
@@ -25,7 +24,11 @@
     </div>
 
     <div class="form-group">
-      <%= f.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
+      <% if @prod %>
+        <%= f.collection_select :animal_id, Animal.where(id: LotDetail.where(lot: Product.where(id: @prod).first.lot).pluck(:animal_id)), :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
+      <% else %>
+        <%= f.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Especie"}, {class: "select2"} %>
+      <% end %>
     </div>
 
     <div class="form-group">
