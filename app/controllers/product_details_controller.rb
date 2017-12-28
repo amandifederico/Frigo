@@ -32,7 +32,7 @@ class ProductDetailsController < ApplicationController
     respond_to do |format|
       if @product_detail.save
         if @flag
-          format.html { redirect_to "/product_details/new?prod=1", notice: 'Product detail was successfully created.' }
+          format.html { redirect_to "/product_details/new?prod=" + @product_detail.product_id.to_s, notice: 'Product detail was successfully created.' }
           format.json { render :show, status: :created, location: @product_detail }
         else
           format.html { redirect_to @product_detail, notice: 'Product detail was successfully created.' }

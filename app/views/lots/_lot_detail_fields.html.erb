@@ -1,6 +1,7 @@
 <tr class="detail-field">
 	<td><%= f.collection_select :animal_id, Animal.all, :id, :to_s, {prompt: "Animal"}, {class: "select2 form-control input-lg"} %></td>
 	<td><%= f.number_field :quantity, class: "form-control input-lg", placeholder: "Cantidad"%></td>
+	<td><%= f.number_field :fallen, class: "form-control input-lg", placeholder: "Caidos"%></td>
 	<td><%= f.text_field :observation, class: "form-control input-lg", placeholder: "Observacion"%></td>
 	</div>
 </tr>
