@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 20171219143810) do
 
   create_table "lots", force: :cascade do |t|
     t.string   "dte"
+    t.date     "arrival_date"
+    t.time     "arrival_time"
     t.integer  "turn_id"
     t.integer  "producer_id"
     t.integer  "city_id"

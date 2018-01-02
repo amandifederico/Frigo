@@ -20,7 +20,35 @@
       <%= f.text_field :dte, class: "form-control", placeholder: "012345678-1"%>
       <span class="help-block">Obligatorio. </span>
     </div>
-    
+
+    <!-- Fecha de llegada -->
+    <label class="col-sm-2 control-label">
+      Fecha de Llegada:
+    </label>
+    <div class="col-sm-10 controls">
+      <div class="input-group date datepicker">
+        <%= f.text_field :arrival_date, placeholder: "Fecha Llegada", class: "form-control" %>
+          <span class="input-group-addon ">
+            <%= fa_icon "list"%>
+          </span>
+      </div>
+      <span class="help-block">Obligatorio. </span>
+    </div>
+
+    <!-- Hora de llegada -->
+    <label class="col-sm-2 control-label">
+      Hora de Llegada:
+    </label>
+    <div class="col-sm-10 controls">
+      <div class="input-group time timepicker">
+        <%= f.text_field :arrival_time, placeholder: "Hora Llegada", class: "form-control" %>
+          <span class="input-group-addon ">
+            <%= fa_icon "list"%>
+          </span>
+      </div>
+      <span class="help-block">Obligatorio. </span>
+    </div>
+
     <!-- Nº de Tropa -->
     <label class="col-sm-2 control-label">
       Nº de Tropa:
@@ -50,7 +78,7 @@
     </label>
     <div class="col-sm-10 controls">
       <div class="input-group date datepicker">
-        <%= f.text_field :expiration_date, placeholder: "Fecha cargo", class: "form-control" %>
+        <%= f.text_field :expiration_date, placeholder: "Fecha Vencimiento", class: "form-control" %>
           <span class="input-group-addon ">
             <%= fa_icon "list"%>
           </span>

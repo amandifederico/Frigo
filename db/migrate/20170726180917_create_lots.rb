@@ -2,6 +2,8 @@ class CreateLots < ActiveRecord::Migration[5.0]
   def change
     create_table :lots do |t|
       t.string :dte
+      t.date :arrival_date
+      t.time :arrival_time
       t.references :turn, foreign_key: true
       t.references :producer, foreign_key: true
       t.references :city, foreign_key: true
