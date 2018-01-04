@@ -31,17 +31,20 @@ class LotsController < ApplicationController
   # POST /lots
   # POST /lots.json
   def create
-    @lot = Lot.new(lot_params)
+     @lot = Lot.new(lot_params)
 
-    respond_to do |format|
-      if @lot.save
-        format.html { redirect_to @lot, notice: 'Lot was successfully created.' }
-        format.json { render :show, status: :created, location: @lot }
-      else
-        format.html { render :new }
-        format.json { render json: @lot.errors, status: :unprocessable_entity }
-      end
-    end
+     respond_to do |format|
+       if @lot.save
+          @prodcut = Product.new
+          @prodcut.lot = @lot
+          @prodcut.save!
+          format.html { redirect_to @lot, notice: 'Lot was successfully created.' }
+          format.json { render :show, status: :created, location: @lot }
+       else
+          format.html { render :new }
+          format.json { render json: @lot.errors, status: :unprocessable_entity }
+       end
+     end
   end
 
   # PATCH/PUT /lots/1

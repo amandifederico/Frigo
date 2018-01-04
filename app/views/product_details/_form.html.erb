@@ -10,63 +10,68 @@
         </ul>
       </div>
     <% end %>
+
     <div class="row">
-    <% if @product %>
-      <%= f.hidden_field :product_id, :value => @product.id%>
-    <% else %>
-      <%= f.collection_select :product_id, Product.all(), :id, :to_s, {prompt: "Producto"}, {class: "select2"} %>
-    <% end %>      
-    
-    <!-- Nº de Tropa -->
-    <label class="col-sm-2 control-label">
-      Tipo:
-    </label>
-    <div class="col-sm-10 controls">
-      <%= f.collection_select :type_id, Type.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2", style: "min-width:225px;float:left;"} %>
-    </div>
-    
+    <% @lot = @product.lot %>
+    <% @pd = ProductDetail.where(product_id: @product.id)%>
 
-    <label class="col-sm-2 control-label">
-      Especie:
-    </label>
-    <div class="col-sm-10 controls">
+    <!-- Control de que no se cargue mas reses de las que hay -->
+    <% if (@lot.quantity_control*2) > @pd.size%>
       <% if @product %>
-        <% animal = Animal.where(id: LotDetail.where(lot: Product.where(id: @product.id).first.lot).pluck(:animal_id))%>
+        <%= f.hidden_field :product_id, :value => @product.id%>
       <% else %>
-        <% animal = Animal.all%>
-      <% end %>
+        <%= f.collection_select :product_id, Product.all(), :id, :to_s, {prompt: "Producto"}, {class: "select2"} %>
+      <% end %>      
 
-      <%= f.collection_select :animal_id, animal, :id, :to_s, {prompt: "Especie"}, {class: "select2", style: "min-width:225px;float:none;"} %>
+      <!-- Nº de Tropa -->
+      <label class="col-sm-2 control-label">
+        Tipo:
+      </label>
+
+      <div class="col-sm-10 controls">
+        <%= f.collection_select :type_id, Type.all, :id, :to_s, {prompt: "Tipo"}, {class: "select2", style: "min-width:225px;float:left;"} %>
+      </div>
+    
+      <label class="col-sm-2 control-label">
+        Especie:
+      </label>
+      <div class="col-sm-10 controls">
+        <% if @product %>
+          <% animal = Animal.where(id: LotDetail.where(lot: Product.where(id: @product.id).first.lot).pluck(:animal_id))%>
+        <% else %>
+          <% animal = Animal.all%>
+        <% end %>
+
+        <%= f.collection_select :animal_id, animal, :id, :to_s, {prompt: "Especie"}, {class: "select2", style: "min-width:225px;float:none;"} %>  
+      </div>
+
       
-    </div>
-
-    
-    <label class="col-sm-2 control-label">
-      Peso:
-    </label>
-    <div class="col-sm-10 controls">
-      <%= f.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%>
-    </div>
+      <label class="col-sm-2 control-label">
+        Peso:
+      </label>
+      <div class="col-sm-10 controls">
+        <%= f.number_field :weight, class: "form-control input-lg", placeholder: "Peso"%>
+      </div>
 
 
-    <label class="col-sm-2 control-label">
-      Peso Control:
-    </label>
-    <div class="col-sm-10 controls">
-      <%= f.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%>
-    </div>
+      <label class="col-sm-2 control-label">
+        Peso Control:
+      </label>
+      <div class="col-sm-10 controls">
+        <%= f.number_field :weight_control, class: "form-control input-lg", placeholder: "Peso control"%>
+      </div>
 
-    <label class="col-sm-2 control-label">
-      Observación:
-    </label>
-    <div class="col-sm-10 controls">
-      <%= f.text_area :observation, class: "form-control input-lg", placeholder: "Observacion"%>
-    </div>
-    
-    <% if @product %>
-      <%= f.hidden_field :flag, value: true %>
+      <label class="col-sm-2 control-label">
+        Observación:
+      </label>
+      <div class="col-sm-10 controls">
+        <%= f.text_area :observation, class: "form-control input-lg", placeholder: "Observacion"%>
+      </div>
+      
+      <% if @product %>
+        <%= f.hidden_field :flag, value: true %>
+      <% end %>
     <% end %>
-
     <div class="actions row">
       <div class="col-sm-4">
         <% if @product %>
@@ -74,10 +79,12 @@
         <% else %>
           <%= link_to 'Volver', product_details_path, class: "btn btn-outline-primary btn-block" %>
         <% end %>          
-      </div>      
-      <div class="col-sm-8">
-        <%= f.submit class: "btn btn-outline-success btn-block"%>
-      </div>  
+      </div>
+      <% if (@lot.quantity_control*2) > @pd.size%>     
+        <div class="col-sm-8">
+          <%= f.submit class: "btn btn-outline-success btn-block"%>
+        </div>  
+      <% end %>
     </div>
   </div>
 <% end %>

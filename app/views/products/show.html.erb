@@ -7,8 +7,7 @@
   <%= @product.description %>
 </p>
 <p>
-  <strong>Estado:</strong>
-  
+  <strong>Estado:</strong> <%=@product.product_details.size%> de <%=@product.lot.quantity_control*2%> media res
 </p>
 <table class="datatable table-striped table-bordered table-list">
 	<thead>

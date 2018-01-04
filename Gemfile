@@ -58,10 +58,6 @@ gem 'rails-jquery-autocomplete'
 #DatePicker
 gem 'bootstrap-datepicker-rails'
 
-#TIME PICKER
-gem 'bootstrap-timepicker-rails'
-
-
 #Datatable
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ajax-datatables-rails'
